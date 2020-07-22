@@ -1,23 +1,31 @@
 import os,sys, random
 import pygame as pg
-armyDict = {'sandrunners': {'bghq':'01', 'hq': 1,'how': {5: 1, 13: 2, 16: 3, 17: 5}},
-			'dancer': {'hq': 3, 'how': {4: 10, 5: 8, 7: 7}},
-			'borgo': {'how': {4: 1, 8: 2, 9: 3, 11: 4, 13: 6}},
-			'ddm': {'how': {6: 1, 14: 2, 16: 4, 17: 5}},
-			'deathbreath': {'how': {7: 1, 11: 2, 15: 3, 16: 8}},
-			'hegemony': {'how': {8: 1, 11: 2, 15: 3, 16: 4, 17: 5}},
-			'mephisto': {'how': {6: 1, 14: 2, 17: 3, 18: 4}},
-			'iron_gang': {'how': {2: 1, 3: 2, 6: 3, 8: 4, 9: 5, 10: 9}},#, 11: 1}},
-			'mississippi': {'how': {8: 1, 13: 2, 16: 3, 18: 4}},
-			'moloch': {'how': {16: 1, 21: 2, 22: 4, 23: 5}},
-			'neojungle': {'how': {8: 1, 13: 2, 16: 3, 18: 4}},
-			'newyork': {'how': {10: 1, 20: 2, 21: 5}},
-			'outpost': {'how': {9: 1, 13: 2, 14: 5, 15: 6, 16: 7}},
-			'begemoths': {'how': {4: 1, 9: 2, 13: 3, 14: 4, 15: 5}},
-			'smart': {'how': {6: 1, 12: 2, 15: 3, 17: 4}},
-			'steelpolice': {'how': {9: 1, 15: 2, 18: 3, 19: 5}},
-			'uranopolis': {'how': {13: 1, 17: 2, 19: 3, 21: 4}},
-			'vegas': {'how': {4: 1, 11: 2, 15: 3, 16: 5}}}
+armyDict = {'sandrunners': {'bghq':'01', 'hq': 1,
+			5: 1, 13: 2, 16: 3, 17: 5},
+			'dancer': {'hq': 3,
+			4: 10, 5: 8, 7: 7},
+			'borgo': {4: 1, 8: 2, 9: 3, 11: 4, 13: 6},
+			'ddm': {6: 1, 14: 2, 16: 4, 17: 5},
+			'deathbreath': {7: 1, 11: 2, 15: 3, 16: 8},
+			'hegemony': {8: 1, 11: 2, 15: 3, 16: 4, 17: 5},
+			'mephisto': {6: 1, 14: 2, 17: 3, 18: 4},
+			'iron_gang': {2: 1, 3: 2, 6: 3, 8: 4, 9: 5, 10: 9},#, 11: 1},
+			'mississippi': {8: 1, 13: 2, 16: 3, 18: 4},
+			'moloch': {16: 1, 21: 2, 22: 4, 23: 5},
+			'neojungle': {8: 1, 13: 2, 16: 3, 18: 4},
+			'newyork': {10: 1, 20: 2, 21: 5},
+			'outpost': {9: 1,13: 2, 14: 5, 15: 6, 16: 7},
+			'begemoths': {4: 1, 9: 2, 13: 3, 14: 4, 15: 5},
+			'smart': {6: 1, 12: 2, 15: 3, 17: 4},
+			'steelpolice': {9: 1, 15: 2, 18: 3, 19: 5},
+			'uranopolis': {13: 1, 17: 2, 19: 3, 21: 4},
+			'vegas': {4: 1, 11: 2, 15: 3, 16: 5},
+			'Thanatos':{7: 1, 13: 2, 15: 3, 16: 4, 17: 6},
+			
+
+			#\/найм должен быть в конце
+			'найм':{4: 1, 6: 0, 7: 1}
+			}
 
 game_folder = os.path.dirname(__file__)  # настройка папки ассетов
 img_folder = os.path.join(game_folder, 'img')
@@ -43,8 +51,11 @@ colorArmy = {'sandrunners': (237,76,35),
 			'smart': (213,213,213),
 			'steelpolice': (145,70,150),
 			'uranopolis': (101,100,101),
-			'vegas': (170,99,36)}
+			'vegas': (170,99,36),
+			'Thanatos': (246,113,0),
+			}
 
+hexMore = 1.05 #что бы гексы чуть заходили на друг друга на поле
 size = sizeDict[0]
 sumInH = 5
 hexh = int(size[1]/9.9)
@@ -158,7 +169,7 @@ elif r > 3: l[2], l[3] = l[3], l[2]
 ArmyList = l[:r]
 for i in range(len(ArmyList)):
 	if not ArmyList[i] in armyDict:
-		ArmyList[i] = armyDictList.pop(random.randrange(len(armyDictList)))
+		ArmyList[i] = armyDictList.pop(random.randrange(len(armyDictList)-1))
 if map27 == '':
 	sumInH = 6
 else:
@@ -189,7 +200,7 @@ class hex:
 		if startImage:
 			self.image = startImage
 		else:
-			self.image = pg.transform.scale(self.image_orig, (int(hexw*1.1),int(hexh*1.1)))
+			self.image = pg.transform.scale(self.image_orig, (int(hexw*hexMore),int(hexh*hexMore)))
 		self.rect = self.image.get_rect() # прямоугольник вокруг image
 		# pg.draw.circle(self.image, (255,0,0), self.rect.center, self.radius)
 	def zoom(self):
@@ -246,7 +257,7 @@ class hex:
 		i.image_orig, i.image_bg = i.image_bg, i.image_orig
 		i.rotate(0)
 
-	def rotate(self, r=60, w = int(hexw*1.1), h = int(hexh*1.1)):
+	def rotate(self, r=60, w = int(hexw*hexMore), h = int(hexh*hexMore)):
 		self.rot = (self.rot + r) % 360
 		old_center = self.rect.center
 		self.image = pg.transform.rotate(self.image_orig, self.rot)
@@ -259,7 +270,6 @@ class hex:
 		self.image = pg.transform.scale(self.image, sz)
 		self.rect = self.image.get_rect()
 		self.rect.center = old_center
-
 
 def main(Surface, AllUnits):
 	game_event_loop(AllUnits) #цикл игровых событий
@@ -316,18 +326,18 @@ def game_event_loop(a):
 				i.click = False
 				if i.z: i.zoom()
 		elif event.type == pg.QUIT:
-			for n in A:
-				print(n[0].nameArmy)
-				print('notake:')
-				units_no_take = sorted([i.numberUnit for i in n if i.notake])
-				print(units_no_take)
-				d = {}
-				for q in units_no_take:
-					if not q in d:
-						d[q] = units_no_take.count(q)
-				print(d,'\ntake:')
-				units_take = sorted([i.numberUnit for i in n if not i.notake])
-				print(units_take)
+			# for n in A: #на тот случай если займусь сохранениями
+				# print(n[0].nameArmy)
+				# print('notake:')
+				# units_no_take = sorted([i.numberUnit for i in n if i.notake])
+				# print(units_no_take)
+				# d = {}
+				# for q in units_no_take:
+				# 	if not q in d:
+				# 		d[q] = units_no_take.count(q)
+				# print(d,'\ntake:')
+				# units_take = sorted([i.numberUnit for i in n if not i.notake])
+				# print(units_take)
 				# d = {}
 				# for q in units_take:
 				# 	if not q in d:
@@ -353,35 +363,39 @@ def addarmies(t, n = 0):
 	bghq = d['bghq'] if 'bghq' in d else 0 #задник базы
 	hq = d['hq'] if 'hq' in d else 1 #количество баз
 	f = os.path.join(img_folder, t) #папка армии
-	d = d['how'] #инструкция построения армии относительно нумерации картинок
 	A = [] #лист для армии
 	bg = pgil(f, "0.png") #задник армии
-	bgTransform = pg.transform.scale(bg, (int(hexw*1.1),int(hexh*1.1)))
-	for i in range(hq + 1, max(d)+1):
+	bgTransform = pg.transform.scale(bg, (int(hexw*hexMore),int(hexh*hexMore)))
+	for i in range(hq + 1, max([i for i in d if type(i)==int])+1):
 		img = pgil(f, f"{i}.png")
-		for x in d:
+		for x in [i for i in d if type(i)==int]:
 			if i <= x:
 				a = d[x]
 				break
 		A += [hex(bg, img, bgTransform, t, i) for n in range(a)]#Добавляю бойцов
-	random.shuffle(A) # перемешал
+	if t != 'найм':
+		random.shuffle(A) # перемешал
 	if bghq:
 		bg = pgil(f, f"{bghq}.png") #достал картинку задника базы
 		bgTransform = 0
 	for i in range(1, hq+1): #пройтись по базам
 		A += [hex(bg,pgil(f, f"{i}.png"), bgTransform, t)] #инициализация объекта
-		A[-1].hp = {1: 20, 3: 10}[hq]#выдать здоровье по кол-ву баз
+		if t != 'найм':
+			A[-1].hp = {1: 20, 3: 10}[hq]#выдать здоровье по кол-ву баз
 
-
-	x = hexw//3
-	y = hexh//2
-	if n:
-		if n % 2:
-			x = size[0] - x
-		if 4 > n > 1:
-			y = size[1] - y
-		elif n > 3:
-			y = center[1]
+	if t == 'найм':
+		x = center[0]
+		y = center[1]
+	else:
+		x = hexw//3
+		y = hexh//2
+		if n:
+			if n % 2:
+				x = size[0] - x
+			if 4 > n > 1:
+				y = size[1] - y
+			elif n > 3:
+				y = center[1]
 
 	for i in A:
 		i.rect.center = (x, y)#Определяю место
