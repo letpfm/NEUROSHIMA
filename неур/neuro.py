@@ -1,30 +1,31 @@
 import os,sys, random
 import pygame as pg
-armyDict = {'sandrunners': {'bghq':'01', 'hq': 1,
-			5: 1, 13: 2, 16: 3, 17: 5},
-			'dancer': {'hq': 3,
+armyDict = {'dancer': {'hq': 3,
 			4: 10, 5: 8, 7: 7},
 			'borgo': {4: 1, 8: 2, 9: 3, 11: 4, 13: 6},
 			'ddm': {6: 1, 14: 2, 16: 4, 17: 5},
-			'deathbreath': {7: 1, 11: 2, 15: 3, 16: 8},
 			'hegemony': {8: 1, 11: 2, 15: 3, 16: 4, 17: 5},
-			'mephisto': {6: 1, 14: 2, 17: 3, 18: 4},
-			'iron_gang': {2: 1, 3: 2, 6: 3, 8: 4, 9: 5, 10: 9},#, 11: 1},
 			'mississippi': {8: 1, 13: 2, 16: 3, 18: 4},
 			'moloch': {16: 1, 21: 2, 22: 4, 23: 5},
 			'neojungle': {8: 1, 13: 2, 16: 3, 18: 4},
 			'newyork': {10: 1, 20: 2, 21: 5},
 			'outpost': {9: 1,13: 2, 14: 5, 15: 6, 16: 7},
-			'begemoths': {4: 1, 9: 2, 13: 3, 14: 4, 15: 5},
 			'smart': {6: 1, 12: 2, 15: 3, 17: 4},
 			'steelpolice': {9: 1, 15: 2, 18: 3, 19: 5},
 			'uranopolis': {13: 1, 17: 2, 19: 3, 21: 4},
 			'vegas': {4: 1, 11: 2, 15: 3, 16: 5},
+
+			'sandrunners': {'01':'01', 'hq': 1,
+			5: 1, 13: 2, 16: 3, 17: 5},
+			'deathbreath': {7: 1, 11: 2, 15: 3, 16: 8},
+			'mephisto': {6: 1, 14: 2, 17: 3, 18: 4},
+			'iron_gang': {2: 1, 3: 2, 6: 3, 8: 4, 9: 5, 10: 9},
+			'begemoths': {4: 1, 9: 2, 13: 3, 14: 4, 15: 5},
 			'Thanatos':{7: 1, 13: 2, 15: 3, 16: 4, 17: 6},
-			
+			'Clan Mercurius':{'01':'01', 15: 1, 17: 2, 18: 3, 20: 4, 21: 5},
 
 			#\/найм должен быть в конце
-			'найм':{4: 1, 6: 0, 7: 1}
+			'найм':{5: 1}
 			}
 
 game_folder = os.path.dirname(__file__)  # настройка папки ассетов
@@ -55,7 +56,6 @@ colorArmy = {'sandrunners': (237,76,35),
 			'Thanatos': (246,113,0),
 			}
 
-hexMore = 1.05 #что бы гексы чуть заходили на друг друга на поле
 size = sizeDict[0]
 sumInH = 5
 hexh = int(size[1]/9.9)
@@ -190,7 +190,7 @@ class hex:
 	click = False
 	radius = hexh//2
 	take = 0
-	def __init__(self, ORIG_IMAGE, bg, startImage = 0, nameArmy = 0, numberUnit = 1):
+	def __init__(self, ORIG_IMAGE, bg, startImage, nameArmy, numberUnit):
 		self.nameArmy = nameArmy
 		self.numberUnit = numberUnit
 		pg.sprite.Sprite.__init__(self)  # запускает инициализатор встроенных классов Sprite
@@ -200,7 +200,7 @@ class hex:
 		if startImage:
 			self.image = startImage
 		else:
-			self.image = pg.transform.scale(self.image_orig, (int(hexw*hexMore),int(hexh*hexMore)))
+			self.image = pg.transform.scale(self.image_orig, (int(hexw),int(hexh)))
 		self.rect = self.image.get_rect() # прямоугольник вокруг image
 		# pg.draw.circle(self.image, (255,0,0), self.rect.center, self.radius)
 	def zoom(self):
@@ -209,7 +209,7 @@ class hex:
 			self.rotate(0)
 			self.z = 0
 		else:
-			s = size[1]*1.2
+			s = size[1]
 			self.old_center = self.rect.center
 			self.rect.center = center
 			self.rotate(0, int(s * HEXhINw), int(s))
@@ -224,50 +224,42 @@ class hex:
 			x1 = self.rect.center[0]
 			y1 = self.rect.center[1]
 			x = surface.get_rect().center[0]
-			y = surface.get_rect().center[1]
-			r = ((x1-x)**2+(y1-y)**2)**0.5
-			if r < y:
-				if not sumInH % 2:
-					x += hexx / 2
-				n = (x1 - x) / hexx #ячейка №
-				if abs(n) % 1 >= 0.5: #если остаток перевешивает
-					n += 0.5 - 1 * int(n < 0)
-				n = int(n)
-				o = y1
-				if not n % 2: # четная ячейка от центра
-					o -= hexh/2
-				o %= hexh #расстояние до ближайшей ячейки
+			if not sumInH % 2:
+				x += hexx / 2
+			n = (x1 - x) / hexx #ячейка №
+			if abs(n) % 1 >= 0.5: #если остаток перевешивает
+				n += 0.5 - 1 * int(n < 0)
+			n = int(n)
+			o = y1
+			if not n % 2: # четная ячейка от центра
+				o -= hexh/2
+			o %= hexh #расстояние до ближайшей ячейки
 
-				if o >= hexh / 2: #если остаток перевешивает
-					o -= hexh
-				self.rect.center = (int(x + n * hexx), int(y1 - o))
+			if o >= hexh / 2: #если остаток перевешивает
+				o -= hexh
+			self.rect.center = (int(x + n * hexx), int(y1 - o))
 
 		surface.blit(self.image, self.rect)
-
 		if self.hp - 1 and not self.z:
 			sizet = hexh//4
 			x = self.rect.center[0]
 			y = self.rect.center[1]-sizet//1.5
 			t = str(self.hp) if self.hp else '#'
 			draw_text(surface, t, x, y, sizet)
-			# draw_text(surface, str(self.hp), int(x + (y**2 - (y1 - y)**2)**0.5), y1 - hexh//4)
 
 	def imagebg(self):
 		i = self
 		i.image_orig, i.image_bg = i.image_bg, i.image_orig
 		i.rotate(0)
 
-	def rotate(self, r=60, w = int(hexw*hexMore), h = int(hexh*hexMore)):
+	def rotate(self, r=60, x = int(hexw), y = int(hexh)):
 		self.rot = (self.rot + r) % 360
 		old_center = self.rect.center
 		self.image = pg.transform.rotate(self.image_orig, self.rot)
-
-		if self.rot in (0, 180):
-			sz = (w, h)
-		else:
-			s160 = h/160
-			sz = (int(230*s160), int(239*s160))
-		self.image = pg.transform.scale(self.image, sz)
+		if self.rot % 180:
+			x = int(1183/946*x)
+			y = int(1229/820*y)
+		self.image = pg.transform.scale(self.image, (x, y))
 		self.rect = self.image.get_rect()
 		self.rect.center = old_center
 
@@ -360,26 +352,29 @@ def game_event_loop(a):
 
 def addarmies(t, n = 0):
 	d = armyDict[t] #достал инструкцию
-	bghq = d['bghq'] if 'bghq' in d else 0 #задник базы
+	bghq = d['01'] if '01' in d else 0 #задник базы
 	hq = d['hq'] if 'hq' in d else 1 #количество баз
 	f = os.path.join(img_folder, t) #папка армии
 	A = [] #лист для армии
 	bg = pgil(f, "0.png") #задник армии
-	bgTransform = pg.transform.scale(bg, (int(hexw*hexMore),int(hexh*hexMore)))
-	for i in range(hq + 1, max([i for i in d if type(i)==int])+1):
-		img = pgil(f, f"{i}.png")
-		for x in [i for i in d if type(i)==int]:
+	bgTransform = pg.transform.scale(bg, (int(hexw),int(hexh))) #=меняю размер для отображения=
+	keyInt = sorted([i for i in d if type(i)==int]) #все ключи типа число
+	a = 100
+	for i in range(hq + 1, max(keyInt)+1): 
+		img = pgil(f, f"{i}.png") #записал путь к картинке
+		if len(A)==34:
+			a = i
+		for x in keyInt:
 			if i <= x:
-				a = d[x]
+				A += [hex(bg, img, bgTransform, t, i) for n in range(d[x])]#Добавляю бойцов
 				break
-		A += [hex(bg, img, bgTransform, t, i) for n in range(a)]#Добавляю бойцов
 	if t != 'найм':
 		random.shuffle(A) # перемешал
 	if bghq:
-		bg = pgil(f, f"{bghq}.png") #достал картинку задника базы
-		bgTransform = 0
+		bg = pgil(f, f"{bghq}.png") #путь картинки задника базы
+		bgTransform = pg.transform.scale(bg, (int(hexw),int(hexh))) #=меняю размер для отображения=
 	for i in range(1, hq+1): #пройтись по базам
-		A += [hex(bg,pgil(f, f"{i}.png"), bgTransform, t)] #инициализация объекта
+		A += [hex(bg,pgil(f, f"{i}.png"), bgTransform, t, 1)] #инициализация объекта
 		if t != 'найм':
 			A[-1].hp = {1: 20, 3: 10}[hq]#выдать здоровье по кол-ву баз
 
@@ -389,17 +384,26 @@ def addarmies(t, n = 0):
 	else:
 		x = hexw//3
 		y = hexh//2
+		x1 = x + hexw
+		y1 = y
 		if n:
 			if n % 2:
 				x = size[0] - x
+				x1 = x - hexw
 			if 4 > n > 1:
 				y = size[1] - y
+				y1 = y
 			elif n > 3:
 				y = center[1]
+				x1 = x
+				y1 = y - hexh
 
 	for i in A:
-		i.rect.center = (x, y)#Определяю место
-
+		if i.numberUnit < a:
+			i.rect.center = (x, y)#Определяю место
+		# else:
+		# 	i.rect.center = (x1, y1)#Определяю место
+		# 	i.notake = 0
 	return A[::-1]
 
 BackGround = Background(sumInH)
