@@ -1,0 +1,75 @@
+Special feature: At the end of
+a battle, you may take one of
+the destroyed (owned) units
+and draw it next turn. You
+cannot take again one of the
+5 attacking units (Red hand
+symbol).
+
+Специальная характеристика: В конце
+сражение, вы можете принять одно из
+уничтоженные (принадлежащие) единицы измерения
+и нарисуйте следующий поворот. Вы
+не могу снова взять один из
+5 атакующих единиц (Красная Рука
+символ).
+
++1 initiative, Connected unit can perform an additional attack in the Initiative phase that follows its last Initiative phase. If a unit performs attacks in two Initiative phases, the additional, third, attack is performed in the phase that follows the other two. If all attacks are taken in Initiative phase 0, the additional action is lost and cannot be performed.
+
++ 1 инициатива, подключенный блок может выполнить дополнительную атаку в фазе инициативы, которая следует за его последней фазой инициативы. Если подразделение выполняет атаки в двух инициативных фазах, дополнительная, третья, атака выполняется в фазе, которая следует за двумя другими. Если все атаки предпринимаются в фазе инициативы 0, дополнительное действие теряется и не может быть выполнено.
+
+At the beginning of a Battle (before the initiative phases) the Killer drone completely destroys the adjacent enemy tile indicated by the explosion icon. Remove that unit and the Killer drone from the board. Killer drone does not cause any damage to HQs.
+
+В начале боя (перед фазами инициативы) беспилотник-убийца полностью уничтожает соседнюю вражескую плитку, обозначенную значком взрыва. Уберите это устройство и беспилотника-Убийцу с доски. Беспилотник-убийца не наносит никакого ущерба штаб-квартире.
+
+Has a 'net' token on itself, that can be thrown on any unit (not HQ). The token respawns after each battle. An enemy unit keeps the 'Net' token until the end of the next battle, even if the net thrower is killed.
+
+Имеет на себе "чистый" токен, который может быть брошен на любое подразделение (не штаб-квартиру). Знак возрождается после каждой битвы. Вражеская единица сохраняет знак "сеть" до конца следующего сражения, даже если метатель сети убит.
+
+Paralysis affects all attacked enemy units. As long as unit is paralysed, it cannot perform any attack until next battle. All other abilities of a paralyzed unit remain in effect (Modules, Nets, Toughness, Armor, etc.).
+
+Mobility. Reflection. Reflection protects the army unit from all attacks directed at its side marked with the reflection icon. Such an attack is reflected in the opposite direction for a distance of one field and hits an enemy tile (Warrior, HQ or Module) if it stands on an adjacent field within the line of fire. A reflected attack doesn’t harm any of MIT tiles.
+
+Cannot be harmed by melee attacks. On tiles deployment, the MIT commander may take the Amoeba off the board and put one of his board tiles in its place. If the Amoeba was damaged, the damage is not transferred to the new tile.
+
+Armour. Toughness. During his turn, while placing tiles, the MIT player may remove the this tile from the board and put one of his drawn Board tiles in its place. If the unit was damaged, the damage is not transferred to the new tile
+
+Паралич поражает все атакованные вражеские подразделения. Пока отряд парализован, он не может атаковать до следующего боя. Все остальные способности парализованного юнита остаются в силе (модули, сети, прочность, броня и т.д.).
+
+Мобильность. Отражение. Отражение защищает армейское подразделение от всех атак, направленных на его сторону, отмеченную значком отражения. Такая атака отражается в противоположном направлении на расстояние одного поля и поражает вражескую плитку (воина, штаб или модуль), если она стоит на соседнем поле в пределах линии огня. Отраженная атака не повредит ни одной из плиток MIT.
+
+Нельзя навредить атакам ближнего боя. При развертывании плиток командир MIT может снять амебу с доски и поставить на ее место одну из своих плиток. Если амеба была повреждена, то повреждение не переносится на новую плитку.
+
+Броня. Прочность. Во время своего хода, во время размещения плиток, игрок MIT может удалить эту плитку с доски и положить на ее место плитку с руки. Если блок был поврежден, то повреждение не переносится на новую плитку
+
+You can store an action tile on this, and use it another turn. Toughness.
+
+Вы можете сохранить плитку действия на ней и использовать ее в другой ход. Прочность.
+
+Enemy units cannot use on-tile-actions
+
+Вражеские юниты не могут использовать карты-действия
+
+No other player can play Action tiles before next turn (Terror counterpart).
+
+Ни один другой игрок не может играть в экшн-плитки до следующего хода (аналог террора).
+
+The Rocket enters the adjacent hex in the direction indicated on the tile, and then it can go two additional hexes (empty or occupied by friendly units), not necessarily in a straight line, chosen by the owner. The first enemy it hits (including HQ) receives wounds equal to attack strength. It moves over the owner’s tiles without hitting them. No bonuses increasing firepower have effect on the rocket launcher. Armor protects a unit from the Rocket attack in the normal way. May not return by MIT HQ special feature.
+
+Ракета входит в соседний шестигранник в направлении, указанном на плитке, и тогда она может пройти два дополнительных шестигранника (пустых или занятых дружественными единицами), не обязательно по прямой, выбранной владельцем. Первый враг, которого он поражает (включая штаб), получает раны, равные силе атаки. Он перемещается по плиткам владельца, не задевая их. Никакие бонусы, увеличивающие огневую мощь, не влияют на ракетную установку. Броня защищает подразделение от ракетного удара обычным способом. Не может вернуться при помощи особенности MIT HQ.
+
+Can hit multiple enemies simultaneously. All enemy units in a line of fire get 3 wounds. No bonuses i increasing firepower take effect. Rotation. May not return by MIT HQ special feature.
+
+Ranged attack. Rotation. Once per turn, may be alata in any direction. ‘May not return by MIT HQ special feature.
+
+Melee attack Upon death, the Bio-droid returns to the top of the Smart player’s tile pile, so ‘it's first on the next draw. Ranged attack. Rotation. Once per turn, may be rotated in any direction. May not return by MIT HQ special feature.
+
+Venom attack. Rotation. Once per turn, may be rotated in any direction. May not return by MIT HQ special feature.
+
+Может поразить несколько врагов одновременно. Все вражеские подразделения на линии огня получают по 3 ранения. Никакие бонусы, которые увеличиваю огневую мощь, не действуют. Вращение. Не может вернуться при помощи особенности MIT HQ.
+
+Дистанционная атака. Вращение. Один раз в ход может быть повернут. Не может вернуться при помощи особенности MIT HQ.
+
+Рукопашная атака на смерть, био-дроид возвращается на вершину стопки плиток умного игрока, так что он первый в следующем розыгрыше. Дистанционная атака. Вращение. Один раз в ход может быть повернут. Не может вернуться при помощи особенности MIT HQ
+
+Атака ядом. Вращение. Один раз в ход может быть повернут. Не может вернуться при помощи особенности MIT HQ

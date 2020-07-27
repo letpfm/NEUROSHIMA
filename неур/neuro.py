@@ -18,16 +18,25 @@ armyDict = {'dancer': {'hq': 3,
 			'sandrunners': {'01':'01', 'hq': 1,
 			5: 1, 13: 2, 16: 3, 17: 5},
 			'deathbreath': {7: 1, 11: 2, 15: 3, 16: 8},
-			'mephisto': {6: 1, 14: 2, 17: 3, 18: 4},
+			'mephisto': {6: 1, 14: 2, 17: 3, 18: 4, 23: 1},
 			'iron_gang': {2: 1, 3: 2, 6: 3, 8: 4, 9: 5, 10: 9},
 			'begemoths': {4: 1, 9: 2, 13: 3, 14: 4, 15: 5},
 			'Thanatos':{7: 1, 13: 2, 15: 3, 16: 4, 17: 6},
-			'Clan Mercurius':{'01':'01', 15: 1, 17: 2, 18: 3, 20: 4, 21: 5},
+			'Clan Mercurius':{'01':'01', 15: 1, 17: 2, 18: 3, 20: 4, 21: 5, 22: 2, 23: 4},
+			'The MIT':{11: 1, 19: 2, 20: 3, 21: 5, 22: 9, 23: 5, 24: 2},
 
 			#\/найм должен быть в конце
-			'найм':{5: 1}
+			'найм': {'hq': 0, 1: [[[-2.606896551724138, -0.4827586206896552], 0, 1, 0, True]],
+			2: [[[-2.606896551724138, 0.5172413793103449], 0, 1, 0, True]],
+			3: [[[2.6, -0.4827586206896552], 0, 1, 0, True]],
+			4: [[[2.6, 0.5172413793103449], 0, 1, 0, True]],
+			5: [[[0.8620689655172413, -0.4827586206896552], 0, 1, 0, True]],
+			6: [[[-1.7379310344827585, 2.013793103448276], 0, 1, 0, True]],
+			7: [[[1.7310344827586206, 2.013793103448276], 0, 1, 0, True]],
+			8: [[[0.0, 0.013793103448275862], 0, 1, 0, True]],
+			9: [[[-0.8689655172413793, -0.4827586206896552], 0, 1, 0, True]]}
 			}
-
+lenArmyDict = len(armyDict)
 game_folder = os.path.dirname(__file__)  # настройка папки ассетов
 img_folder = os.path.join(game_folder, 'img')
 def pgil(a, b): return pg.image.load(os.path.join(a, b)).convert_alpha()
@@ -54,6 +63,8 @@ colorArmy = {'sandrunners': (237,76,35),
 			'uranopolis': (101,100,101),
 			'vegas': (170,99,36),
 			'Thanatos': (246,113,0),
+			'Clan Mercurius':(211, 124, 124),
+			'The MIT':(222, 108, 52)
 			}
 
 size = sizeDict[0]
@@ -86,94 +97,139 @@ class Background(pg.sprite.Sprite):
 		self.rect.center = center
 
 def choiceArmy():
-	lenArmyD = len(armyDictList)
-	szChArmy = center[0] * 2 / (lenArmyD)
+	lenArmyD = len(armyDictList)#количество вариантов
+	szChArmy = center[0] * 2 #ширина окна
+	if lenArmyD < 12:
+		szChArmy /= 12
+	else:
+		szChArmy /= lenArmyD #размер шрифта
+
 	while 1:
 		Screen.blit(BackGround.image, BackGround.rect)
+
 		for i in range(lenArmyD): 
+			#если есть цвет, то крашу
 			clrarmy = colorArmy[armyDictList[i]] if armyDictList[i] in colorArmy else (255,255,255)
 			draw_text(Screen, armyDictList[i], center[0]*(0.5+i%2), (i-i%2)*szChArmy/2, szChArmy, 0, clrarmy)
-			if not i%2: draw_text(Screen, '_'*25+'|'+'_'*25, center[0], i*szChArmy/2, szChArmy, 0)
+			
+			if not i%2:#разделительные линии
+				draw_text(Screen, '_'*25+'|'+'_'*25, center[0], i*szChArmy/2, szChArmy, 0)
+
 		pg.display.update()
+
 		for event in pg.event.get():
-			if event.type == pg.QUIT:  # check for closing window
+
+			if event.type == pg.QUIT:  #проверка закрытия окна
 				pg.quit()
 				sys.exit()
+
 			if event.type == pg.MOUSEBUTTONDOWN:
 				y = int(pg.mouse.get_pos()[1]/szChArmy)*2 + pg.mouse.get_pos()[0]//center[0]
 				return y if y < lenArmyD else lenArmyD-1
 
-BackGround = Background(0)
 pg.display.set_caption("Егор молодец")
-running = True
-r = 2
-l = ['случайная армия']*6
-armyDictList = [i for i in armyDict]
-size = sizeDict[4]
-map27 = 'не '
-while running:
-	Screen.blit(BackGround.image, BackGround.rect)
-	t = ['разрешение экрана: '+str(size), \
-	'поле '+map27+'на 27 ячеек'\
-	,'Кол-во игроков на новую игру: '+str(r)] + ['игрок №'+str(i+1)+': '+l[i] for i in range(r)]\
-	+ ['' for i in range(6-r)] + ['Начать игру NEUROSHIMA']
-	for i in range(len(t)):
-		if i in (2,8):
-			draw_text(Screen, '_'*23, center[0], i*hexh, hexh, 0, (50, 200, 50))
-		if 2 < i < 9 and t[i] != '' and l[i-3] != 'случайная армия':
-			draw_text(Screen, 'Выбрать\nслучайную\nармию', hexh, (i+0.1)*hexh, hexh/4, 1, (200,100,100))
-			clrarmy = colorArmy[l[i-3]] if l[i-3] in colorArmy else (255,255,255)
-			draw_text(Screen, t[i], center[0], i*hexh, hexh, 0, clrarmy)
-		else:
-			draw_text(Screen, t[i], center[0], i*hexh, hexh, 0)
-	pg.display.update()
-	MyClock.tick(60)
+	
+if lenArmyDict == len(armyDict):
+	running = True #что бы цикл бегал
+	BackGround = Background(0) #нашёл фон
+	r = 2 #стартовое кол-во игроков
+	l = ['случайная армия']*6 #названия которые надо отобразить
+	armyDictList = [i for i in armyDict if not i in ('sumInH')] #, 'найм'возможные армии
+	size = sizeDict[4] #размер окошка настроек
+	map27 = 'не ' #будет ли поле особым
 
-	for event in pg.event.get():
-		if event.type == pg.QUIT:  # check for closing window
-			pg.quit()
-			sys.exit()
-		if event.type == pg.MOUSEBUTTONDOWN:
-			mPos = pg.mouse.get_pos()[1]
-			if mPos < hexh:
-				n = sizeDict.index(size) + 1
-				if n == len(sizeDict):
-					n = 0
-				size = sizeDict[n]
-			elif mPos < hexh*2:
-				map27 = '' if map27 == 'не ' else 'не '
-			elif mPos < hexh*3:
-				r += 1
-				if r > 6:
-					r = 2
-					for i in range(-4, 0):
-						if l[i] != 'случайная армия':
-							armyDictList += [l[i]]
+	while running:
+		Screen.blit(BackGround.image, BackGround.rect)#фон
+
+		t = ['разрешение экрана: '+str(size), 'поле '+map27+'на 27 ячеек', \
+		'Кол-во игроков на новую игру: '+str(r)] + ['игрок №'+str(i+1)+': '+l[i] for i in range(r)]\
+		+ ['' for i in range(6-r)] + ['Начать игру NEUROSHIMA']
+
+		for i in range(len(t)):
+
+			if i in (2,8):
+				draw_text(Screen, '_'*23, center[0], i*hexh, hexh, 0, (50, 200, 50))
+
+			if 2 < i < 9 and t[i] != '' and l[i-3] != 'случайная армия':
+				draw_text(Screen, 'Выбрать\nслучайную\nармию', hexh, (i+0.1)*hexh, hexh/4, 1, (200,100,100))
+				clrarmy = colorArmy[l[i-3]] if l[i-3] in colorArmy else (255,255,255)
+				draw_text(Screen, t[i], center[0], i*hexh, hexh, 0, clrarmy)
+
+			else:
+				draw_text(Screen, t[i], center[0], i*hexh, hexh, 0)
+
+		pg.display.update()
+		MyClock.tick(60)
+
+		for event in pg.event.get():
+
+			if event.type == pg.QUIT:  # check for closing window
+				pg.quit()
+				sys.exit()
+
+			if event.type == pg.MOUSEBUTTONDOWN:
+				mPos = pg.mouse.get_pos()[1]
+
+				if mPos < hexh:
+					n = sizeDict.index(size) + 1
+
+					if n == len(sizeDict):
+						n = 0
+					size = sizeDict[n]
+
+				if hexh < mPos < hexh*2:
+					map27 = '' if map27 == 'не ' else 'не '
+
+				elif mPos < hexh*3:
+					r += 1
+					if r > 6:
+						r = 2
+						for i in range(-4, 0):
+							if l[i] != 'случайная армия':
+								armyDictList += [l[i]]
+								l[i] = 'случайная армия'
+
+				elif mPos < hexh*(3+r):
+					i = int(mPos/hexh-3)
+
+					if l[i] != 'случайная армия':
+						armyDictList += [l[i]]
+
+						if pg.mouse.get_pos()[0] <= hexh*2:
 							l[i] = 'случайная армия'
-			elif mPos < hexh*(3+r):
-				i = int(mPos/hexh-3)
-				if l[i] != 'случайная армия':
-					armyDictList += [l[i]]
-					if pg.mouse.get_pos()[0] <= hexh*2:
-						l[i] = 'случайная армия'
+
+						else:
+							l[i] = armyDictList.pop(choiceArmy())
+
 					else:
 						l[i] = armyDictList.pop(choiceArmy())
-				else:
-					l[i] = armyDictList.pop(choiceArmy())
 
-			elif hexh*9 < mPos:
-				running = False
+				elif hexh*9 < mPos:
+					running = False
 
-if r == 6: l[5],l[2],l[4] = l[2],l[4],l[5]
-elif r > 3: l[2], l[3] = l[3], l[2]
-ArmyList = l[:r]
-for i in range(len(ArmyList)):
-	if not ArmyList[i] in armyDict:
-		ArmyList[i] = armyDictList.pop(random.randrange(len(armyDictList)-1))
-if map27 == '':
-	sumInH = 6
+	if r == 6:
+		l[5], l[2], l[4] = l[2], l[4], l[5]
+
+	elif r > 3:
+		l[2], l[3] = l[3], l[2]
+
+	ArmyList = l[:r]
+
+	if not 'найм' in ArmyList and 'найм' in armyDictList:
+		armyDictList.remove('найм')
+
+	for i in range(len(ArmyList)):
+
+		if not ArmyList[i] in armyDict:
+			ArmyList[i] = armyDictList.pop(random.randrange(len(armyDictList)))
+
+	if map27 == '':
+		sumInH = 6
+	else:
+		sumInH = 7 if r > 4 else 5
 else:
-	sumInH = 7 if r > 4 else 5
+	sumInH = armyDict['sumInH']
+	ArmyList = [i for i in armyDict if i != 'sumInH']
 hexh = int(size[1]/(sumInH*0.99)) #нужная высота
 Screen = pg.display.set_mode(size)
 center = Screen.get_rect().center
@@ -181,6 +237,34 @@ HEXhINw = 946/821 #ширина оригинала/высота  оригина�
 hexw = int(hexh*HEXhINw) #нужная ширина
 countNoTake = []
 hexx = hexh/HEXhINw #hexh/hexx = HEXhINw высота гекса выступает шириной вписанного в него 6угольника высота которого подходит для расстояния меж ячейками по ширене поля
+
+sizePiece = hexh//3
+class piece:
+	hp = 1
+	z = 0
+	rot = 0
+	notake = 0
+	click = False
+	radius = sizePiece/2
+	side = 1
+	def __init__(self, typehex, img, nameArmy, numberUnit):
+		self.type = typehex
+		self.nameArmy = nameArmy
+		self.numberUnit = numberUnit
+		pg.sprite.Sprite.__init__(self)  # запускает инициализатор встроенных классов Sprite
+		self.image = pg.Surface((100, 100))
+		self.image = img
+		self.rect = self.image.get_rect()
+	def zoom(self): pass
+	def update(self, surface):
+		if self.click:
+			self.rect.center = [pg.mouse.get_pos()[i] + self.posmouse[i] for i in (0, 1)]
+		surface.blit(self.image, self.rect)
+	def imagebg(self):pass
+	def rotate(self, r=60, x = int(hexw), y = int(hexh)): pass
+	def remember(self, l):
+		i = self
+		i.rect.center = [l[0][n] * hexh + center[n] for n in (0, 1)]
 
 class hex:
 	hp = 1
@@ -190,7 +274,9 @@ class hex:
 	click = False
 	radius = hexh//2
 	take = 0
-	def __init__(self, ORIG_IMAGE, bg, startImage, nameArmy, numberUnit):
+	side = 0
+	def __init__(self, typehex, ORIG_IMAGE, bg, startImage, nameArmy, numberUnit):
+		self.type = typehex
 		self.nameArmy = nameArmy
 		self.numberUnit = numberUnit
 		pg.sprite.Sprite.__init__(self)  # запускает инициализатор встроенных классов Sprite
@@ -251,6 +337,7 @@ class hex:
 		i = self
 		i.image_orig, i.image_bg = i.image_bg, i.image_orig
 		i.rotate(0)
+		i.side = not i.side
 
 	def rotate(self, r=60, x = int(hexw), y = int(hexh)):
 		self.rot = (self.rot + r) % 360
@@ -263,10 +350,23 @@ class hex:
 		self.rect = self.image.get_rect()
 		self.rect.center = old_center
 
+	def remember(self, l):
+		i = self
+		if i.side != l[4]: i.imagebg()
+		i.rect.center, i.notake, i.hp, i.rot = \
+		[l[0][n]*hexh + center[n] for n in (0, 1)], l[1], l[2], l[3]
+		i.rotate(0)
+
 def main(Surface, AllUnits):
 	game_event_loop(AllUnits) #цикл игровых событий
 	Surface.blit(BackGround.image, BackGround.rect)
-	[i.update(Surface) for i in AllUnits[::-1] if not i.notake or i in AllUnits[-len([i for i in countNoTake if i]):]]
+	centerList = []
+	updateList = []
+	for i in AllUnits:
+		if not i.rect.center in centerList:
+			centerList += i.rect.center
+			updateList += [i]
+	[i.update(Surface) for i in updateList[::-1]]
 	sz = hexh//4
 	for i in range(len(countNoTake)):
 		if countNoTake[i] > 1:
@@ -287,17 +387,17 @@ def game_event_loop(a):
 		else: EventHp = 0 
 
 		if event.type == pg.MOUSEBUTTONDOWN or EventHp:
-			tops_of_stacks = []
-			if countNoTake:
-				for i in range(len(A)):
-					tops_of_stacks += [A[i][-countNoTake[i]]]
-			for i in a[:len(a)-sum(countNoTake)]+tops_of_stacks:
+			for i in a:
 				iPos = i.rect.center
 				mPos = pg.mouse.get_pos()
 				if ((mPos[0] - iPos[0])**2+(mPos[1] - iPos[1])**2)**0.5 < i.radius:
 					#произошло ли событие мыши над гексом
 					aInd = a.index(i)
-					if aInd: a.insert(0, a.pop(aInd))
+					if i.type != 'маркер':
+						if aInd != sumPiece:
+							a.insert(sumPiece, a.pop(aInd))
+					elif aInd:
+						a.insert(0, a.pop(aInd))
 					if i.notake:
 						i.imagebg()
 						i.notake = 0
@@ -318,35 +418,29 @@ def game_event_loop(a):
 				i.click = False
 				if i.z: i.zoom()
 		elif event.type == pg.QUIT:
-			# for n in A: #на тот случай если займусь сохранениями
-				# print(n[0].nameArmy)
-				# print('notake:')
-				# units_no_take = sorted([i.numberUnit for i in n if i.notake])
-				# print(units_no_take)
-				# d = {}
-				# for q in units_no_take:
-				# 	if not q in d:
-				# 		d[q] = units_no_take.count(q)
-				# print(d,'\ntake:')
-				# units_take = sorted([i.numberUnit for i in n if not i.notake])
-				# print(units_take)
-				# d = {}
-				# for q in units_take:
-				# 	if not q in d:
-				# 		d[q] = units_take.count(q)
-				# print(d)
-				# d = {}
-				# lastQ = 0
-				# how_long_Q = 0
-				# for q in range(max(armyDict[n[0].nameArmy]["how"]),0,-1):
-				# 	if not q in d:
-				# 		how_long_Q += 1
-				# 		Uc = units_no_take.count(q)
-				# 		if lastQ != Uc or not q+how_long_Q in d: 
-				# 			d[q] = Uc
-				# 			lastQ = Uc
-				# 			how_long_Q = 0
-				# print(d)
+			D = {'sumInH': sumInH}
+			for n in A: #прохожусь по всем армиям
+
+				d = armyDict[n[0].nameArmy] #беру инструкцию создания этой армии
+
+				for i in range(len(n)): #пройтись по элементам в армии
+					#сколько высот гексов от центра
+					xy = [(n[i].rect.center[q] - center[q])/hexh for q in (0, 1)]
+					if n[i].type != 'маркер':
+						sInf = [xy, n[i].notake, n[i].hp, n[i].rot, n[i].side, i]
+					else:
+						sInf = [xy, i] #для маркера нужно только положение
+
+					k = n[i].numberUnit
+
+					if not k in d or isinstance(d[k],int): #если я ещё не трогал ключ
+						d[k] = []
+
+					d[k] += [sInf]
+
+				D[n[0].nameArmy] = d
+
+			print(D)
 			pg.quit()
 			sys.exit()
 
@@ -359,61 +453,101 @@ def addarmies(t, n = 0):
 	bg = pgil(f, "0.png") #задник армии
 	bgTransform = pg.transform.scale(bg, (int(hexw),int(hexh))) #=меняю размер для отображения=
 	keyInt = sorted([i for i in d if type(i)==int]) #все ключи типа число
-	a = 100
+	
+	instruction = {} #на тот случай если в библиотеке не числа
+	if not isinstance(d[keyInt[-1]],int):
+		for k in keyInt:
+			instruction[k] = len(d[k])
+	else:
+		instruction = d
+	
+	a = 100 #проверка наличия маркеров
+
 	for i in range(hq + 1, max(keyInt)+1): 
-		img = pgil(f, f"{i}.png") #записал путь к картинке
-		if len(A)==34:
+
+		if len(A)<34:
+
+			img = pgil(f, f"{i}.png") #записал путь к картинке
+			
+			for x in range(len(keyInt)):
+				
+				if i <= keyInt[x]:
+					A += [hex('не база и не маркер',bg, img, bgTransform, t, i) for q in range(instruction[keyInt[x]])]#Добавляю бойцов
+					break
+		else:
 			a = i
-		for x in keyInt:
-			if i <= x:
-				A += [hex(bg, img, bgTransform, t, i) for n in range(d[x])]#Добавляю бойцов
-				break
+			break
+
 	if t != 'найм':
 		random.shuffle(A) # перемешал
+
+	if a != 100:
+
+		for i in range(a, max(keyInt)+1):
+			img = pg.transform.scale(pgil(f, f"{i}.png"), (sizePiece, sizePiece))
+
+			for x in range(len(keyInt)):
+
+				if i <= keyInt[x]:
+					A += [piece('маркер', img, t, i) for n in range(instruction[keyInt[x]])]#Добавляю маркеры
+					break
+
 	if bghq:
 		bg = pgil(f, f"{bghq}.png") #путь картинки задника базы
 		bgTransform = pg.transform.scale(bg, (int(hexw),int(hexh))) #=меняю размер для отображения=
+
 	for i in range(1, hq+1): #пройтись по базам
-		A += [hex(bg,pgil(f, f"{i}.png"), bgTransform, t, 1)] #инициализация объекта
-		if t != 'найм':
-			A[-1].hp = {1: 20, 3: 10}[hq]#выдать здоровье по кол-ву баз
+		A.insert(0,hex('база', bg, pgil(f, f"{i}.png"), bgTransform, t, i)) #инициализация объекта
+		A[0].hp = {1: 20, 3: 10}[hq]#выдать здоровье по кол-ву баз
 
-	if t == 'найм':
-		x = center[0]
-		y = center[1]
+	if isinstance(d[keyInt[-1]],int):
+		
+		if t == 'найм':
+			x = center[0]
+			y = center[1]
+			for i in A:
+				i.rect.center = (x, y)#Определяю место
+		else:
+			x = hexw//3
+			y = hexh//2
+			x1 = sizePiece
+			y1 = 0
+			if n:
+				if n % 2:
+					x = size[0] - x
+					x1 *= -1
+				if 4 > n > 1:
+					y = size[1] - y
+					y1 = 0
+				elif n > 3:
+					y = center[1]
+					x1 = 0
+					y1 = -sizePiece
+			for i in range(35):
+				A[i].rect.center = (x, y)#Определяю место
+			if not y1:
+				y = sizePiece//2 + (size[1] - sizePiece) * int(y > center[1])
+				x += x1
+			if not x1:
+				x = + sizePiece//2 + (size[0] - sizePiece) * int(x > center[0])
+				y += y1
+			for i in range(35,len(A)):
+				n = A[i].numberUnit - a
+				A[i].rect.center = (x+x1*n, y+y1*n)#Определяю место
 	else:
-		x = hexw//3
-		y = hexh//2
-		x1 = x + hexw
-		y1 = y
-		if n:
-			if n % 2:
-				x = size[0] - x
-				x1 = x - hexw
-			if 4 > n > 1:
-				y = size[1] - y
-				y1 = y
-			elif n > 3:
-				y = center[1]
-				x1 = x
-				y1 = y - hexh
-
-	for i in A:
-		if i.numberUnit < a:
-			i.rect.center = (x, y)#Определяю место
-		# else:
-		# 	i.rect.center = (x1, y1)#Определяю место
-		# 	i.notake = 0
-	return A[::-1]
+		for i in range(len(A)):
+			A[i].remember(d[A[i].numberUnit].pop(0))
+	return A
 
 BackGround = Background(sumInH)
 A = [addarmies(ArmyList[i], i) for i in range(len(ArmyList))]
 armies = []
-n = []
+sumPiece = 0
 for i in A:
-	armies += i[:-1]
-	n += [i[-1]]
-armies += n
+	armies += i
+	if len(i)>35:
+		sumPiece += len(i[35:])
+		armies = i[35:] + armies
 while 1:
 	countNoTake = [sum([i.notake for i in n]) for n in A]
 	main(Screen, armies)

@@ -1,0 +1,69 @@
+Подумайте о наемниках. Постмодернистские ронины и ниндзя. Уникальные навыки по найму, но преданные только себе. Почему-то римские имена. (Серьезно, тема и т. д. могут легко меняться. Я мог бы иметь больше смысла как ответвление Молоха. Но это не так много поисковых запросов google image.)
+
+Единица измерения:
+
+Штаб: настойчивость. Соседние дружественные подразделения, убитые в бою, не удаляются до конца боя. Поэтому они будут продолжать блокировать дальний огонь и действовать по собственной инициативе, даже если смертельно ранены. Мгновенные плитки действия, такие как снайпер и граната, все равно мгновенно убивают их.
+
+Это и есть армия. Вам нужно увидеть это в действии, чтобы по-настоящему оценить все, что он делает. Он безумно смеется, когда наемники принимают удар за ударом, никогда не падая, чтобы разоблачить штаб-квартиру. И тогда все соседние подразделения гарантированно совершат свои атаки, независимо от инициативы. БАМ! Класс!
+
+Ретиарии (2): дальнобойные метатели сетей. Они атакуют по своей инициативе и с помощью способности снайпера поражают любое подразделение в направлении их атаки. Но они не причиняют никакого вреда. Вместо этого подразделение получает чистый счетчик (армия будет поставляться с 4 счетчиками; я сделаю их, когда сделаю армейскую рефкарту). Противник может избавиться от чистого счетчика, сбросив дополнительную плитку на своем ходу (атака на руку противника-второстепенная подтема).
+Преторианец (1): Один из всего лишь двух отрядов в армии, которые могут нанести более 1 урона подразделению или штабу.
+Баллиста (1): по своей инициативе она наносит 1 Урон штабу каждого противника. Броня. (Я же говорил, что этих наемников трудно остановить.)
+Сикарий (5): Продолжая тему " ваши ничтожные защитные меры заставляют меня смеяться! ахаха! ха!- эти единицы наносят 1 урон в ближнем бою единице, и 1 урон в ближнем бою единице непосредственно за ней, как единица ближнего боя и миномет все в одном пакете.
+Стрелец (2): дальний нападающий армии. Три атаки, но только по инициативе 1. Прочность.
+Miles Universalis (1): Как и универсальный солдат, он имеет ближний бой и дальнюю атаку в одном направлении. Нападает дважды. Прочность.
+Ликтор (1): может замок с соседним блоком один раз за ход.
+
+Модуль засады (1): подключенное подразделение атакует до начала боя, но не на каком-либо инициативном шаге во время боя. Сбросьте модуль засады до начала боя. Никакого влияния на штаб-квартиру.
+Скаутские модули (5): + 1 инициатива
+Офицерские модули (3): + 1 сила ближнего боя
+Модуль щита (1): соседние дружественные единицы невосприимчивы к вражеским плиткам мгновенного действия. Воздушные удары не причиняют им вреда,толчки в спину не толкают их и т. д.
+Модуль отключения (1): соседние вражеские юниты не получают бонусов от модулей или штабов.
+Модуль дымовой завесы (1): соседние дружественные блоки могут перемещаться через дымовую завесу к одному из трех гексов на противоположной стороне, а затем вращаться при желании.
+
+Сражения (4): БАМ! Класс!
+Нажмите Назад (2): Засунь!
+Отвлекать (2): противник сбрасывает дополнительную плитку на своем следующем ходу. Белка!
+Снайпер (1): Пью!
+
+Так чего же в нем нет? Ну, у него есть только 13 немодульных блоков, и два из них не наносят урона. Эти два также являются единственными инициативными подразделениями 3. И дальнобойные поражающие единицы атакуют инициативу 1. Только две единицы могут нанести больше одного урона единице. Там нет юнитов с мобильностью и нет плиток мгновенного действия move. Рокировка ликтора и модуль дымовой завесы являются единственными двумя способами перемещения штаб-квартиры или любого другого подразделения, если на то пошло. И никаких медиков.
+
+Я думаю, что армия довольно сбалансирована, хотя, по общему признанию, Я недостаточно играл с ней, чтобы найти наиболее эффективные способы играть с Меркурием или против него. Размещение штаб-квартиры имеет большое значение. Порядок, в котором плитки выходят, имеет большое значение в том, как игра идет, так как все плитки очень отличаются друг от друга. Даже с возможностью штаб-квартиры и юнитами, которые легко проникают в оборону, игра с кланом Меркурий очень интерактивна.
+
+Если вы играете с Меркурием, пожалуйста, дайте мне знать, что вы думаете! С большим количеством различных идей в армии, я особенно заинтересован, если есть какие-то плитки, которые вам действительно не нравятся и жаль, что их нет. Кроме того, если есть плитки, вы хотите, чтобы их было больше, и вы думаете, что смесь плиток должна быть скорректирована.
+
+https://boardgamegeek.com/thread/1108377/clan-mercurius-variant-army
+
+Think mercenaries. Postmodern ronin and ninjas. Unique skills for hire, but loyal to none but themselves. Roman names, for some reason. (Seriously, theme &c. can easily change. I might make more sense as a Moloch offshoot. But that doesn't get many google image search hits.)
+
+The units:
+
+HQ: Persistence. Adjacent friendly units killed in battle aren't removed until the end of the battle. So they'll keep blocking ranged fire, and act on their own initiative even when lethally wounded. Instant action tiles like Sniper and Grenade still instantly kill them.
+
+This makes the army. You need to see this in action to really appreciate all that it does. It laughs maniacally as the mercs take hit after hit, never falling to expose the HQ. And then all adjacent units are guaranteed to make their attacks, regardless of initiative. Bam! Kapow!
+
+Retiarii (2): Ranged net throwers. They attack on their initiative, and with the sharpshooter ability, hit any one unit in the direction of their attack. But they deal no damage. Instead, the unit gets a net counter (The army will come with 4 counters; I'll make them when I make the army ref card). An opponent can get rid of a net counter by discarding an additional tile on their turn (attacking the opponent's hand is a minor subtheme).
+Praetorian (1): One of only two units in the army that can deal more than 1 damage to a unit or HQ.
+Ballista (1): On its initiative, it deals 1 damage to each opponent's HQ. Armor. (I told you these mercs were hard to stop.)
+Sicarii (5): Continuing the theme of 'your puny defensive measures makes me laugh! ahaha! ha!' these units deal 1 melee damage to a unit, and 1 melee damage to the unit directly behind it, like a melee unit and a mortar all in one package.
+Sagittarii (2): The army's ranged attacker. Three attacks, but only at initative 1. Toughness.
+Miles Universalis (1): Like the universal soldier, it has a melee and ranged attack in the same direction. Attacks twice. Toughness.
+Lictor (1): Can castle with an adjacent unit once per turn.
+
+Ambush module (1): A connected unit attacks before the battle starts, but not on any initiative step during the battle. Discard the ambush module before battle starts. No effect on HQ's.
+Scout modules (5): +1 initiative
+Officer modules (3): +1 melee strength
+Shield module (1): Adjacent friendly units are immune to enemy instant action tiles. Air strikes don't hurt them, push backs don't push them, &c.
+Disabler module (1): Adjacent enemy units get no bonus from modules or HQ's.
+Smoke screen module (1): Adjacent friendly units can move through the smoke screen to one of the three hexes on the opposite side, and then rotate if desired.
+
+Battles (4): Bam! Kapow!
+Push Back (2): Shove!
+Distract (2): Opponent discards an additional tile on their next turn. Squirrel!
+Sniper (1): Pew!
+
+So what doesn't it have? Well, it has only 13 non-module units, and two of them don't deal damage. Those two are also the only initiative 3 units. And the ranged damaging units attack on initiative 1. Only two units can deal more than a single damage to a unit. There are no units with mobility, and no move instant action tiles. The castling lictor and the smoke screen module are the only two ways to move the HQ, or any other unit for that matter. No medics, either.
+
+I think the army is fairly balanced, although I admittedly haven't played enough with it to find the most effective ways to play with or against Mercurius. HQ placement matters a lot. The order the tiles come out makes a big difference in how the game plays out, as the tiles are all very different from one another. Even with the HQ ability and units that easily penetrate defenses a game with Clan Mercurius is highly interactive.
+
+If you play with Mercurius, please let me know what you think! With a lot of different ideas in the army, I'm especially interested if there are any tiles you really don't like and wish were gone. Also if there are tiles you wish there were more of, and you think the tile mix should be adjusted.
