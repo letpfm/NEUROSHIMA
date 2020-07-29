@@ -1,0 +1,166 @@
+Neuroshima шестигранной! Пограничный Нексус
+Правила
+Дымовая завеса-это плитка, которую можно разместить в любом занятом или незанятом пространстве. Если он помещен на пустое место, любая плитка: друг врага, может быть помещена поверх него. Дымовая завеса остается в игре до начала следующего боя. В конце следующего боя все счетчики дымовой завесы удаляются из игры [после нулевой инициативы]. Дымовая завеса делает невозможным огонь из оружия дальнего действия в гекс или из него. Любой блок внутри или за счетчиком дымовой завесы не может быть поражен никакими дальними атаками; за исключением тех случаев, когда блок стрельбы имеет способность острого стрелка. Подразделения с острыми стрелковыми способностями могут полностью игнорировать дымовую завесу. Ближние боевые единицы под дымовой завесой контратаки теряют свою атаку. Не влияет на неттеры, HQ или модули; удалите этот файл, если HQ входит в его пространство. Дымовая завеса не снимается после мини-боя [только полные "нормальные" бои].
+Мини-сражения похожи на обычные сражения, за исключением того, что атаковать может только выбранный юнит. Эффекты, которые срабатывают до или после боя, не происходят. Таким образом, дымовая завеса остается на борту, как и единицы, которые могли бы самоуничтожиться, или страны, которые в противном случае были бы удалены. Штаб-квартиры и модули по-прежнему предлагают свои бонусы, но сами могут не атаковать. Поэтому в мини-атаке блок с несколькими атаками все равно будет атаковать несколько раз, если он или подключенные к нему модули,
+позвольте ему сделать это.
+Кибер-вирус-это модуль, который отключает и крадет соседние модули для своих собственных целей. Любой подключенный к нему модуль деактивируется, и модуль вируса Кибера имитирует эту способность модулей столлена. Обратите внимание, что это отличный эффект от модуля Outpost, который крадет соседние модули, но сам по себе не дает никакого бонуса к подключенным блокам. Если бы Кибермодуль был соединен с двумя вражескими модулями, один из которых обеспечивал +1 время, а другой - +1 дальнюю атаку, то эти два модуля были бы отключены [как если бы они были соединены сеткой], и Кибервирус вместо этого обеспечивал бы +1 Время и +1 дальнюю атаку на любые дружественные единицы, соседствующие с модулем кибервируса.
+Модули Frontier Nexus оснащены возможностью вращения. Во время вашего поворота вы можете повернуть свой модуль лицом к
+новое направление по мере необходимости.
+Ваш штаб предоставляет возможность снайпера всем подключенным дальнобойным подразделениям, расположенным рядом с вашей базой.
+
+
+Like foundation tiles except that can be placed in any unoccupied or occupied (friend of enemy), non base space.
+At the end of combat or if any base enters its space, Smoke screen is removed from play. Smoke screen makes it impossible to fire ranged weapons through,
+into or out of the hex without sharpshooter ability also units inside lose their melee attacks.
+Has no effect on nets, bases or modules. Smokescreen does not protect or stop any instant tile attacks (grenades, sniper, bomb, etc), however smokescreen itself is immune to such effects.
+
+Как и фундаментные плитки, за исключением того, что они могут быть размещены в любом незанятом или занятом (другом врага), не базовом пространстве.
+В конце боя или если какая-либо база входит в его пространство, дымовая завеса удаляется из игры. Дымовая завеса делает невозможным огонь из дальнобойного оружия через нее,
+в гекс или из него без способности снайпера также единицы внутри теряют свои атаки ближнего боя.
+Не оказывает никакого влияния на сети, базы или модули. Дымовая завеса не защищает и не останавливает любые мгновенные атаки плитки (гранаты, снайпер, бомба и т. д.), Однако сама дымовая завеса невосприимчива к таким эффектам.
+
+As normal battle except that only one selected,
+non base, friendly unit makes all its attacks.
+Effects which trigger before or after combat do not occur. bases and modules still offer their bonus’s.
+
+Как обычный бой разве что только один отборный,
+не базовый, дружественный отряд совершает все свои атаки.
+Эффекты, которые срабатывают до или после боя, не происходят. базы и модули все еще предлагают свои бонусы.
+
+
+Optional rules:
+
+Precison Attack - bases and modules may not offer their bonus’s (or abilities) to the attacking unit. However the defender will be healed and trigger any medic modules connected to itself.
+Precision attacking unit with several attacks will still attack several times if its own abilities permit it to do so.
+Дополнительные правила:
+
+Precison Attack - базы и модули не могут предлагать свои бонусы (или способности) атакующему подразделению. Однако защитник будет исцелен и вызовет любые медицинские модули, подключенные к нему.
+Прецизионная атакующая единица с несколькими атаками все равно будет атаковать несколько раз, если ее собственные способности позволят ей это сделать.
+    
+     
+     
+и то как я это получил:
+
+	Connected unit can
+	perform an additional
+	attack in the Initiative
+	phase that follows its last
+	Initiative phase.
+
+	 
+
+	Ranged attack in
+	Initiative 2 & 1.
+
+	- Special featui
+
+	Melee attack.
+	Adjacent friendly units acquire
+	Sharpshooter.
+
+	  
+	      
+	  
+	   
+
+	Any connected enemy
+	modules are deactivated
+	(as if netted) and the
+	Cyber Virus module
+	provides all stolen
+	abilities to all connected
+	friendly units
+
+	 
+
+	    
+
+	Ranged attack.
+	Sharpshooter.
+
+	A Battle begins. After
+	Battle, the player’s
+	turn ends. Not useable
+	if any player drew
+	their last tile
+
+	 
+
+	Like foundation tiles except that
+	can be placed in any
+	unoccupied or occupied (friend
+	of enemy), non-HQ space. At
+	the end of combat or if any HQ
+	enters its space, Smoke screen
+	is removed from play. Smoke
+	screen makes it impossible to
+	fire ranged weapons through,
+	into or out of the hex without
+	sharpshooter ability also units
+	inside lose their melee attacks.
+	Has no effect on nets, HQs or
+	modules. Smokescreen does
+	not protect or stop any instnt-
+	tile attacks (grenades, sniper,
+	bomb, etc), however
+	smokescreen itself is immune
+	to such effects.
+
+	ue
+
+	pei
+
+
+	Move a unit to an
+	adjacent, unoccupied
+	hex and/or turn it in any
+	direction desired.
+
+	  
+
+	Melee attack. Mobility.
+	Toughness.
+
+	te» Ranged attack.
+
+	FA)
+
+	As normal battle except
+	that only one selected,
+	non HQ, friendly unit
+	makes all its attacks.
+	Effects which trigger
+	before or after combat
+	do not occur. HQs and
+	modules still offer their
+	bonus’s.
+
+	Es
+	Armor.
+	Connected units +1 Initiative.
+
+	@- Ranged attack, Armor.
+
+	is
+
+	Medic: A connected unit
+	must ignore all wounds
+	from 1 attack & Medic is
+	discarded.
+
+	Connected units H
+	Strength in Ranged
+	combat.
+
+	Melee attack.
+	2 x Toughess.
+
+	Optional rules:
+	Precison Attack - HQs and modules may not
+	offer their bonus’s (or abilities) to the attacking
+
+	_ unit. However the defender will be healed and
+	trigger any medic modules connected to itself.
+	Precision attacking unit with several attacks will
+	still attack several times if its own abilities permit
+	it to do so.

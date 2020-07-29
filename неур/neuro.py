@@ -1,13 +1,13 @@
-import os,sys, random
+import pickle, os, sys, random, datetime
 import pygame as pg
 armyDict = {'dancer': {'hq': 3,
 			4: 10, 5: 8, 7: 7},
 			'borgo': {4: 1, 8: 2, 9: 3, 11: 4, 13: 6},
 			'ddm': {6: 1, 14: 2, 16: 4, 17: 5},
 			'hegemony': {8: 1, 11: 2, 15: 3, 16: 4, 17: 5},
-			'mississippi': {8: 1, 13: 2, 16: 3, 18: 4},
+			'mississippi': {8: 1, 13: 2, 16: 3, 18: 4, 19: 1},
 			'moloch': {16: 1, 21: 2, 22: 4, 23: 5},
-			'neojungle': {8: 1, 13: 2, 16: 3, 18: 4},
+			'neojungle': {8: 1, 13: 2, 16: 3, 18: 4, 19: 6},
 			'newyork': {10: 1, 20: 2, 21: 5},
 			'outpost': {9: 1,13: 2, 14: 5, 15: 6, 16: 7},
 			'smart': {6: 1, 12: 2, 15: 3, 17: 4},
@@ -18,7 +18,7 @@ armyDict = {'dancer': {'hq': 3,
 			'sandrunners': {'01':'01', 'hq': 1,
 			5: 1, 13: 2, 16: 3, 17: 5},
 			'deathbreath': {7: 1, 11: 2, 15: 3, 16: 8},
-			'mephisto': {6: 1, 14: 2, 17: 3, 18: 4, 23: 1},
+			'mephisto': {6: 1, 14: 2, 17: 3, 18: 4, 24: 1},
 			'iron_gang': {2: 1, 3: 2, 6: 3, 8: 4, 9: 5, 10: 9},
 			'begemoths': {4: 1, 9: 2, 13: 3, 14: 4, 15: 5},
 			'Thanatos':{7: 1, 13: 2, 15: 3, 16: 4, 17: 6},
@@ -38,9 +38,9 @@ armyDict = {'dancer': {'hq': 3,
 			'Frontier Nexus': {7: 1, 17: 2, 19: 4, 21: 2, 22: 9}
 			}
 lenArmyDict = len(armyDict)
-#вот тут теперь можно присвоить armyDict словарь, что был выписан при выходе из партии
 
 game_folder = os.path.dirname(__file__)  # настройка папки ассетов
+files = [nameFile for nameFile in os.listdir(game_folder) if nameFile[-4:] == '.txt']
 img_folder = os.path.join(game_folder, 'img')
 def pgil(a, b): return pg.image.load(os.path.join(a, b)).convert_alpha()
 os.environ['SDL_VIDEO_CENTERED'] = '1'#что бы по центру было
@@ -67,12 +67,13 @@ colorArmy = {'sandrunners': (237,76,35),
 			'vegas': (170,99,36),
 			'Thanatos': (246,113,0),
 			'Clan Mercurius':(211, 124, 124),
-			'The MIT':(222, 108, 52)
+			'The MIT':(222, 108, 52),
+			'Frontier Nexus':(220, 48, 165)
 			}
 
 size = sizeDict[0]
-sumInH = 5
-hexh = int(size[1]/9.9)
+sumInH = 11
+hexh = int(size[1]/(sumInH - 0.1))
 pg.init()
 Screen = pg.display.set_mode(size)
 center = Screen.get_rect().center
@@ -99,54 +100,103 @@ class Background(pg.sprite.Sprite):
 		self.rect = self.image.get_rect()
 		self.rect.center = center
 
-def choiceArmy():
-	lenArmyD = len(armyDictList)#количество вариантов
-	szChArmy = center[0] * 2 #ширина окна
-	if lenArmyD < 12:
-		szChArmy /= 12
-	else:
-		szChArmy /= lenArmyD #размер шрифта
-
+def choiceArmy(l):
+	i0 = 0
 	while 1:
 		Screen.blit(BackGround.image, BackGround.rect)
-
-		for i in range(lenArmyD): 
+		ll = len(l)	
+		if ll > sumInH:
+			yScroll = int(i0/(ll - sumInH)*(center[1]*2-hexh))
+			draw_text(Screen, '>;З', center[0]*2-hexh, yScroll, hexh, 0, \
+	(random.randrange(255), random.randrange(255), random.randrange(255)))
+		for i in range(i0, min(ll, i0 + sumInH)): 
 			#если есть цвет, то крашу
-			clrarmy = colorArmy[armyDictList[i]] if armyDictList[i] in colorArmy else (255,255,255)
-			draw_text(Screen, armyDictList[i], center[0]*(0.5+i%2), (i-i%2)*szChArmy/2, szChArmy, 0, clrarmy)
-			
-			if not i%2:#разделительные линии
-				draw_text(Screen, '_'*25+'|'+'_'*25, center[0], i*szChArmy/2, szChArmy, 0)
+			clrarmy = colorArmy[l[i]] if l[i] in colorArmy else (255,255,255)
+			draw_text(Screen, l[i], center[0], (i - i0)*hexh, hexh, 0, clrarmy)
 
 		pg.display.update()
 
 		for event in pg.event.get():
-
-			if event.type == pg.QUIT:  #проверка закрытия окна
-				pg.quit()
-				sys.exit()
+			whatQUIT(event.type)
 
 			if event.type == pg.MOUSEBUTTONDOWN:
-				y = int(pg.mouse.get_pos()[1]/szChArmy)*2 + pg.mouse.get_pos()[0]//center[0]
-				return y if y < lenArmyD else lenArmyD-1
+				if event.button == 4:
+					if i0: i0 -= 1
+				elif event.button == 5:
+					if i0 < ll - sumInH: i0 += 1
+				else: return i0 + pg.mouse.get_pos()[1]//hexh
 
 pg.display.set_caption("Егор молодец")
-	
+BackGround = Background(0) #нашёл фон
+
+
+size = sizeDict[4]
+running = True
+def editSizeScreen(size):
+	n = sizeDict.index(size) + 1
+	if n == len(sizeDict):
+		n = 0
+	return sizeDict[n]
+
+def whatNOorNOT(no): return '' if no == 'не ' else 'не '
+
+def whatQUIT(QUIT):
+	if QUIT == pg.QUIT: pg.quit(); sys.exit()
+
+nameFile = 0
+while 1:
+	Screen.blit(BackGround.image, BackGround.rect)
+	t = ['','разрешение экрана: '+str(size), ''\
+	, 'выбрать слот'*int(len(files)>0), '', "ЗАГРУЗИТЬ старая игра"*int(nameFile != 0), "",\
+	"СОЗДАТЬ новая игра"]
+	for event in pg.event.get(): whatQUIT(event.type)
+	y =	choiceArmy(t)
+	if y == 1: size = editSizeScreen(size)
+	elif y == 3 and len(files):
+		i = 0
+		nameFile = 0
+		while not nameFile:
+			fi = files[i][:-4].split(', ')
+			fi += ['' for fi0 in range(sumInH - len(fi) - 3)]
+			t = fi + ['◄◄◄Да, эта партия, но я ещё подумаю'\
+				,'следующая►►►' + str(i+1) + '/' + str(len(files)),'X×УДАЛИТЬ×X']
+			chA = -1
+			while chA < 0:
+				chA = choiceArmy(t) - len(fi)
+			if chA == 0:
+				nameFile = files[i]
+			elif chA == 1:
+				i += 1
+				if i >= len(files):
+					i = 0
+			elif chA == 2:
+				if choiceArmy(['' for fi0 in range(sumInH//2-2)]+['НЕТ!!!','_'*sumInH*3, 'Да, X×УДАЛИТЬ×X']) < sumInH//2:
+					pass
+				else:
+					os.remove(os.path.join(os.path.abspath(game_folder), files.pop(i)))
+					break
+	elif y == 5 and nameFile:
+		with open(nameFile, 'rb') as f:
+			armyDict = pickle.load(f)
+		break
+	elif y == 7:
+		break
+
+
 if lenArmyDict == len(armyDict):
 	running = True #что бы цикл бегал
-	BackGround = Background(0) #нашёл фон
 	r = 2 #стартовое кол-во игроков
 	l = ['случайная армия']*6 #названия которые надо отобразить
-	armyDictList = [i for i in armyDict if not i in ('sumInH')] #, 'найм'возможные армии
-	size = sizeDict[4] #размер окошка настроек
+	armyDictList = [i for i in armyDict if not i in ('sumInH', 'найм')] #возможные армии
 	map27 = 'не ' #будет ли поле особым
+	mercenaries = 'не '
 
 	while running:
 		Screen.blit(BackGround.image, BackGround.rect)#фон
 
-		t = ['разрешение экрана: '+str(size), 'поле '+map27+'на 27 ячеек', \
+		t = ['NEUROSHIMA', 'поле '+map27+'на 27 ячеек', \
 		'Кол-во игроков на новую игру: '+str(r)] + ['игрок №'+str(i+1)+': '+l[i] for i in range(r)]\
-		+ ['' for i in range(6-r)] + ['Начать игру NEUROSHIMA']
+		+ ['' for i in range(6-r)] + [mercenaries + 'брать наёмников','НАЧАТЬ ИГРУ']
 
 		for i in range(len(t)):
 
@@ -162,28 +212,19 @@ if lenArmyDict == len(armyDict):
 				draw_text(Screen, t[i], center[0], i*hexh, hexh, 0)
 
 		pg.display.update()
-		MyClock.tick(60)
 
 		for event in pg.event.get():
-
-			if event.type == pg.QUIT:  # check for closing window
-				pg.quit()
-				sys.exit()
+			whatQUIT(event.type)
 
 			if event.type == pg.MOUSEBUTTONDOWN:
-				mPos = pg.mouse.get_pos()[1]
+				mPos = pg.mouse.get_pos()[1]//hexh
 
-				if mPos < hexh:
-					n = sizeDict.index(size) + 1
+				if mPos == 0:
+					pass
 
-					if n == len(sizeDict):
-						n = 0
-					size = sizeDict[n]
+				elif mPos == 1: map27 = whatNOorNOT(map27)
 
-				if hexh < mPos < hexh*2:
-					map27 = '' if map27 == 'не ' else 'не '
-
-				elif mPos < hexh*3:
+				elif mPos == 2:
 					r += 1
 					if r > 6:
 						r = 2
@@ -191,9 +232,8 @@ if lenArmyDict == len(armyDict):
 							if l[i] != 'случайная армия':
 								armyDictList += [l[i]]
 								l[i] = 'случайная армия'
-
-				elif mPos < hexh*(3+r):
-					i = int(mPos/hexh-3)
+				elif 9> mPos > 2:
+					i = mPos - 3
 
 					if l[i] != 'случайная армия':
 						armyDictList += [l[i]]
@@ -202,12 +242,13 @@ if lenArmyDict == len(armyDict):
 							l[i] = 'случайная армия'
 
 						else:
-							l[i] = armyDictList.pop(choiceArmy())
+							l[i] = armyDictList.pop(choiceArmy(armyDictList))
 
 					else:
-						l[i] = armyDictList.pop(choiceArmy())
-
-				elif hexh*9 < mPos:
+						l[i] = armyDictList.pop(choiceArmy(armyDictList))
+				elif mPos == 9: mercenaries = whatNOorNOT(mercenaries)
+				elif mPos == 10:
+					nameFile = datetime.datetime.today().strftime("%H'%M'%S %d'%m'%Y") + ', '
 					running = False
 
 	if r == 6:
@@ -218,21 +259,23 @@ if lenArmyDict == len(armyDict):
 
 	ArmyList = l[:r]
 
-	if not 'найм' in ArmyList and 'найм' in armyDictList:
-		armyDictList.remove('найм')
-
 	for i in range(len(ArmyList)):
 
 		if not ArmyList[i] in armyDict:
 			ArmyList[i] = armyDictList.pop(random.randrange(len(armyDictList)))
 
+	if mercenaries == '':
+		ArmyList += ['найм']
+
 	if map27 == '':
 		sumInH = 6
 	else:
 		sumInH = 7 if r > 4 else 5
+
 else:
 	sumInH = armyDict['sumInH']
 	ArmyList = [i for i in armyDict if i != 'sumInH']
+
 hexh = int(size[1]/(sumInH*0.99)) #нужная высота
 Screen = pg.display.set_mode(size)
 center = Screen.get_rect().center
@@ -267,7 +310,7 @@ class piece:
 	def rotate(self, r=60, x = int(hexw), y = int(hexh)): pass
 	def remember(self, l):
 		i = self
-		i.rect.center = [l[0][n] * hexh + center[n] for n in (0, 1)]
+		i.rect.center = [int(l[0][n] * hexh + center[n]) for n in (0, 1)]
 
 class hex:
 	hp = 1
@@ -357,20 +400,27 @@ class hex:
 		i = self
 		if i.side != l[4]: i.imagebg()
 		i.rect.center, i.notake, i.hp, i.rot = \
-		[l[0][n]*hexh + center[n] for n in (0, 1)], l[1], l[2], l[3]
+		[int(l[0][n]*hexh + center[n]) for n in (0, 1)], l[1], l[2], l[3]
 		i.rotate(0)
 
 def main(Surface, AllUnits):
 	game_event_loop(AllUnits) #цикл игровых событий
 	Surface.blit(BackGround.image, BackGround.rect)
-	centerList = []
+	for i in AllUnits:
+		if i.z:
+			return i.update(Surface)
+
 	updateList = []
+	centerList = []
 	for i in AllUnits:
 		if not i.rect.center in centerList:
 			centerList += i.rect.center
 			updateList += [i]
+
 	[i.update(Surface) for i in updateList[::-1]]
+
 	sz = hexh//4
+
 	for i in range(len(countNoTake)):
 		if countNoTake[i] > 1:
 			if 4 > i > 1: y = size[1]-hexh//2
@@ -378,7 +428,7 @@ def main(Surface, AllUnits):
 			else: y = -hexh//8
 			draw_text(Surface, str(countNoTake[i]), abs(size[0]*(i%2) - sz), y, hexh//2)
 
-def game_event_loop(a):
+def game_event_loop(a, nameFile = nameFile):
 	for event in pg.event.get():
 		if event.type == pg.KEYDOWN:
 			ek = event.key
@@ -422,32 +472,40 @@ def game_event_loop(a):
 				if i.z: i.zoom()
 		elif event.type == pg.QUIT:
 			D = {'sumInH': sumInH}
+			if nameFile == 0:
+				nameFile = ''
 			for n in A: #прохожусь по всем армиям
+				a = n[0].nameArmy
+				if not '.txt' in nameFile:
+					nameFile += a + ', '
+				d = armyDict[a] #беру инструкцию создания этой армии
 
-				d = armyDict[n[0].nameArmy] #беру инструкцию создания этой армии
-
-				for i in range(len(n)): #пройтись по элементам в армии
+				for i in n: #пройтись по элементам в армии
 					#сколько высот гексов от центра
-					xy = [(n[i].rect.center[q] - center[q])/hexh for q in (0, 1)]
-					if n[i].type != 'маркер':
-						sInf = [xy, n[i].notake, n[i].hp, n[i].rot, n[i].side, i]
+					xy = [(i.rect.center[q] - center[q])/hexh for q in (0, 1)]
+					if i.type != 'маркер':
+						sInf = [xy, i.notake, i.hp, i.rot, i.side]
 					else:
-						sInf = [xy, i] #для маркера нужно только положение
+						sInf = [xy] #для маркера нужно только положение
 
-					k = n[i].numberUnit
+					k = i.numberUnit
 
 					if not k in d or isinstance(d[k],int): #если я ещё не трогал ключ
 						d[k] = []
 
 					d[k] += [sInf]
 
-				D[n[0].nameArmy] = d
+				D[a] = d
+			if not '.txt' in nameFile:
+				nameFile = nameFile[:-2]+'.txt'
+			with open(nameFile, 'wb') as f:
+				pickle.dump(D, f)
 
-			print(D)
 			pg.quit()
 			sys.exit()
 
 def addarmies(t, n = 0):
+	n %= 6
 	d = armyDict[t] #достал инструкцию
 	bghq = d['01'] if '01' in d else 0 #задник базы
 	hq = d['hq'] if 'hq' in d else 1 #количество баз
@@ -463,7 +521,6 @@ def addarmies(t, n = 0):
 			instruction[k] = len(d[k])
 	else:
 		instruction = d
-	
 	a = 100 #проверка наличия маркеров
 
 	for i in range(hq + 1, max(keyInt)+1): 
