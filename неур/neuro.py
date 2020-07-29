@@ -35,7 +35,8 @@ armyDict = {'dancer': {'hq': 3,
 			8: [[[0.0, 0.013793103448275862], 0, 1, 0, True]],
 			9: [[[-0.8689655172413793, -0.4827586206896552], 0, 1, 0, True]]},
 
-			'Frontier Nexus': {7: 1, 17: 2, 19: 4, 21: 2, 22: 9}
+			'Frontier Nexus': {7: 1, 17: 2, 19: 4, 21: 2, 22: 9},
+			'New Detroit': {16: 1, 21: 2, 24: 3}
 			}
 lenArmyDict = len(armyDict)
 
@@ -68,7 +69,8 @@ colorArmy = {'sandrunners': (237,76,35),
 			'Thanatos': (246,113,0),
 			'Clan Mercurius':(211, 124, 124),
 			'The MIT':(222, 108, 52),
-			'Frontier Nexus':(220, 48, 165)
+			'Frontier Nexus':(220, 48, 165),
+			'New Detroit': (145, 160, 180),
 			}
 
 size = sizeDict[0]
