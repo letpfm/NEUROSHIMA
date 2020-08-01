@@ -37,7 +37,8 @@ armyDict = {'dancer': {'hq': 3,
 
 			'Frontier Nexus': {7: 1, 17: 2, 19: 4, 21: 2, 22: 9},
 			'New Detroit': {16: 1, 21: 2, 24: 3},
-			'HI-TECH': {7: 1, 11: 2, 13: 3, 14: 4, 16: 5, 17: 2, 18: 11}
+			'HI-TECH': {7: 1, 11: 2, 13: 3, 14: 4, 16: 5, 17: 2, 18: 11},
+			'Sand Runners': {11: 1, 14: 2, 15: 3, 18: 5}
 			}
 lenArmyDict = len(armyDict)
 
@@ -111,7 +112,7 @@ def choiceArmy(l):
 		ll = len(l)	
 		if ll > sumInH:
 			yScroll = int(i0/(ll - sumInH)*(center[1]*2-hexh))
-			draw_text(Screen, '>;З', center[0]*2-hexh, yScroll, hexh, 0, \
+			draw_text(Screen, '[', center[0]*2, yScroll, hexh, 0, \
 	(random.randrange(255), random.randrange(255), random.randrange(255)))
 		for i in range(i0, min(ll, i0 + sumInH)): 
 			#если есть цвет, то крашу
@@ -149,7 +150,7 @@ nameFile = 0
 while running:
 	Screen.blit(BackGround.image, BackGround.rect)
 	lenf = int(len(files) != 0)
-	t = ['экран: '+str(size)] + ["ЗАГРУЗИТЬ старая игра"] * lenf +\
+	t = ['экран: '+str(size)] + ["ЗАГРУЗИТЬ"] * lenf +\
 	['поле '+map27+'на 27 ячеек', 'игроков: '+str(r)]\
 	+ [mercenaries + 'брать наёмников','НАЧАТЬ НОВУЮ ИГРУ']
 	for event in pg.event.get():
@@ -221,7 +222,8 @@ while running:
 		running = False
 
 
-if lenArmyDict == len(armyDict):	
+if lenArmyDict == len(armyDict):
+	armyDictList.remove('случайная армия')
 	if r == 6:
 		l[5], l[2], l[4] = l[2], l[4], l[5]
 	elif r > 3:
@@ -247,11 +249,9 @@ else:
 hexh = int(size[1]/(sumInH*0.99)) #нужная высота
 Screen = pg.display.set_mode(size)
 center = Screen.get_rect().center
-HEXhINw = 946/821 #ширина оригинала/высота  оригинала
-hexw = int(hexh*HEXhINw) #нужная ширина
+hexw = int(hexh*2/3**0.5) #нужная ширина
 countNoTake = []
-hexx = hexh/HEXhINw #hexh/hexx = HEXhINw высота гекса выступает шириной вписанного в него 6угольника высота которого подходит для расстояния меж ячейками по ширене поля
-
+hexx = int(hexw * 0.75)
 sizePiece = hexh//3
 class piece:
 	hp = 1
@@ -260,7 +260,7 @@ class piece:
 	notake = 0
 	click = False
 	radius = sizePiece/2
-	side = 1
+	side = 0
 	def __init__(self, typehex, img, nameArmy, numberUnit):
 		self.type = typehex
 		self.nameArmy = nameArmy
@@ -280,15 +280,10 @@ class piece:
 		i = self
 		i.rect.center = [int(l[0][n] * hexh + center[n]) for n in (0, 1)]
 
-class hex:
-	hp = 1
-	rot = 0
+class hex(piece):
 	notake = 1
-	z = 0
-	click = False
 	radius = hexh//2
 	take = 0
-	side = 0
 	def __init__(self, typehex, ORIG_IMAGE, bg, startImage, nameArmy, numberUnit):
 		self.type = typehex
 		self.nameArmy = nameArmy
@@ -312,7 +307,7 @@ class hex:
 			s = size[1]
 			self.old_center = self.rect.center
 			self.rect.center = center
-			self.rotate(0, int(s * HEXhINw), int(s))
+			self.rotate(0, int(s * 2/3**0.5), int(s))
 			self.z = 1
 			
 	def update(self, surface):
