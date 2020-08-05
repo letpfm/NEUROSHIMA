@@ -38,7 +38,8 @@ armyDict = {'dancer': {'hq': 3,
 			'Frontier Nexus': {7: 1, 17: 2, 19: 4, 21: 2, 22: 9},
 			'New Detroit': {16: 1, 21: 2, 24: 3},
 			'HI-TECH': {7: 1, 11: 2, 13: 3, 14: 4, 16: 5, 17: 2, 18: 11},
-			'Sand Runners': {11: 1, 14: 2, 15: 3, 18: 5}
+			'Sand Runners': {11: 1, 14: 2, 15: 3, 18: 5},
+			'Salt Lake City': {6: 1, 15: 2, 17: 3, 18: 5, 19: 4}
 			}
 lenArmyDict = len(armyDict)
 
@@ -335,7 +336,7 @@ class hex(piece):
 			self.rect.center = (int(x + n * hexx), int(y1 - o))
 
 		surface.blit(self.image, self.rect)
-		if self.hp - 1 and not self.z:
+		if self.hp - 1 and not self.z and self.side:
 			sizet = hexh//4
 			x = self.rect.center[0]
 			y = self.rect.center[1]-sizet//1.5
