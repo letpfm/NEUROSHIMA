@@ -1,2 +1,13 @@
 Vengeance: When dying, a unit with this ability deals 1 damage to adjusted enemy unit or module(HQ included)
 (скорее всего это)Месть: умирая, юнит с этой способностью наносит 1 Урон смежному вражескому юниту или модулю(включая штаб-квартиру)
+
+Grab enemy unit two hexes away and place adjacent to a friendly unit. Enemy way rotate unit as per his choice
+Захватите вражескую единицу на расстоянии двух гексов и поместите рядом с дружественной единицей. Вражеский путь вращайте блок в соответствии с его выбором
+
+Shocks nets: Whenever adjacent enemy unit is affected by this tile this unit is considered as shocked and will not take part in the next Battle(it will not attack nor grant any bonuses to other units). However unit may be moved freely, can use Push Back or Grabbing.
+
+Шоковые сети: всякий раз, когда соседний вражеский юнит подвергается воздействию этой плитки, этот юнит считается шокированным и не будет участвовать в следующем сражении(он не будет атаковать и не будет давать никаких бонусов другим юнитам). Однако блок может быть перемещен свободно, может использовать толчок назад или захват.
+
+Spynet: Links enemy adjusted modules (not enemy HQ) to one adjacent New Detroit tile (even when unit with Spynet is not correctly connected to module) as if they were friendly Modules, automatically receiving their bonuses and benefits (Note that the module can still aid allies that are connected to it). If a Medic module is linked to several units (including a unit adjusted to Spynet Rider) which all take damage simultaneously, then as usual the module’s owner decides which linked unit will be cured.
+
+Spynet: связывает вражеские настроенные модули (не вражеский штаб) с одной соседней Новой Детройтской плиткой (даже если блок со Spynet неправильно подключен к модулю), как если бы они были дружественными модулями, автоматически получая свои бонусы и преимущества (обратите внимание, что модуль все еще может помочь союзникам, которые подключены к нему). Если медицинский модуль связан с несколькими блоками (включая блок, настроенный на Spynet Rider), которые все получают повреждения одновременно, то, как обычно, владелец модуля решает, какой связанный блок будет вылечен.

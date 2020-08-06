@@ -13,6 +13,7 @@ symbol).
 не могу снова взять один из
 5 атакующих единиц (Красная Рука
 символ).
+В конце боя можешь оставить твоего умершего не с красной рукой на следующую руку
 
 +1 initiative, Connected unit can perform an additional attack in the Initiative phase that follows its last Initiative phase. If a unit performs attacks in two Initiative phases, the additional, third, attack is performed in the phase that follows the other two. If all attacks are taken in Initiative phase 0, the additional action is lost and cannot be performed.
 
@@ -25,20 +26,21 @@ At the beginning of a Battle (before the initiative phases) the Killer drone com
 Has a 'net' token on itself, that can be thrown on any unit (not HQ). The token respawns after each battle. An enemy unit keeps the 'Net' token until the end of the next battle, even if the net thrower is killed.
 
 Имеет на себе "чистый" токен, который может быть брошен на любое подразделение (не штаб-квартиру). Знак возрождается после каждой битвы. Вражеская единица сохраняет знак "сеть" до конца следующего сражения, даже если метатель сети убит.
+Может кинуть сеть на любого не HQ. Она держится до конца след.боя, затем, если жив, всё сначада
 
 Paralysis affects all attacked enemy units. As long as unit is paralysed, it cannot perform any attack until next battle. All other abilities of a paralyzed unit remain in effect (Modules, Nets, Toughness, Armor, etc.).
 
 Mobility. Reflection. Reflection protects the army unit from all attacks directed at its side marked with the reflection icon. Such an attack is reflected in the opposite direction for a distance of one field and hits an enemy tile (Warrior, HQ or Module) if it stands on an adjacent field within the line of fire. A reflected attack doesn’t harm any of MIT tiles.
 
-Cannot be harmed by melee attacks. On tiles deployment, the MIT commander may take the Amoeba off the board and put one of his board tiles in its place. If the Amoeba was damaged, the damage is not transferred to the new tile.
+амеба: Cannot be harmed by melee attacks. On tiles deployment, the MIT commander may take the Amoeba off the board and put one of his board tiles in its place. If the Amoeba was damaged, the damage is not transferred to the new tile.
 
-Armour. Toughness. During his turn, while placing tiles, the MIT player may remove the this tile from the board and put one of his drawn Board tiles in its place. If the unit was damaged, the damage is not transferred to the new tile
+ Armour. Toughness. During his turn, while placing tiles, the MIT player may remove the this tile from the board and put one of his drawn Board tiles in its place. If the unit was damaged, the damage is not transferred to the new tile
 
 Паралич поражает все атакованные вражеские подразделения. Пока отряд парализован, он не может атаковать до следующего боя. Все остальные способности парализованного юнита остаются в силе (модули, сети, прочность, броня и т.д.).
 
 Мобильность. Отражение. Отражение защищает армейское подразделение от всех атак, направленных на его сторону, отмеченную значком отражения. Такая атака отражается в противоположном направлении на расстояние одного поля и поражает вражескую плитку (воина, штаб или модуль), если она стоит на соседнем поле в пределах линии огня. Отраженная атака не повредит ни одной из плиток MIT.
 
-Нельзя навредить атакам ближнего боя. При развертывании плиток командир MIT может снять амебу с доски и поставить на ее место одну из своих плиток. Если амеба была повреждена, то повреждение не переносится на новую плитку.
+амебу Нельзя навредить атакам ближнего боя. При развертывании плиток командир MIT может удалить амебу с доски и поставить на ее место одну из своих плиток. Если амеба была повреждена, то повреждение не переносится на новую плитку.
 
 Броня. Прочность. Во время своего хода, во время размещения плиток, игрок MIT может удалить эту плитку с доски и положить на ее место плитку с руки. Если блок был поврежден, то повреждение не переносится на новую плитку
 
