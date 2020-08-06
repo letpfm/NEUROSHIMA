@@ -1,0 +1,2 @@
+Vengeance: When dying, a unit with this ability deals 1 damage to adjusted enemy unit or module(HQ included)
+(скорее всего это)Месть: умирая, юнит с этой способностью наносит 1 Урон смежному вражескому юниту или модулю(включая штаб-квартиру)
