@@ -1,3 +1,9 @@
+https://boardgamegeek.com/thread/1539473/fan-army-mit
+https://boardgamegeek.com/thread/1670094/remake-v30-mit
+а вот в этой описание чувака с красной рукой на 5 ближних ударов в одну сторону описан иначе:
+https://drive.google.com/drive/folders/0B1pD10Yvop8sWTR2ZGRHUTR2OUE
+
+
 Special feature: At the end of
 a battle, you may take one of
 the destroyed (owned) units
@@ -75,3 +81,347 @@ Venom attack. Rotation. Once per turn, may be rotated in any direction. May not 
 Рукопашная атака на смерть, био-дроид возвращается на вершину стопки плиток умного игрока, так что он первый в следующем розыгрыше. Дистанционная атака. Вращение. Один раз в ход может быть повернут. Не может вернуться при помощи особенности MIT HQ
 
 Атака ядом. Вращение. Один раз в ход может быть повернут. Не может вернуться при помощи особенности MIT HQ
+
+===================================================================
+===================================================================
+польский из картинки на гугл диске: 
+Rozpoczyna się Bitwź
+Nie można jej zagrać, jeśli
+którykolwiek z graczy
+pociągnął swój ostatni
+żeton. Po Bitwie tura
+gracza się kończy.
+
+Начинается битва
+Ее нельзя играть, если
+любой из игроков
+потянул свой последний
+жетон. После битвы тура
+игрок заканчивается.
+
+Podłączona jednostka
+otrzymuje +1 do inicjatywy
+oraz możliwość.
+przeprowadzenia dodatkowe
+ataku w inicjatywie o 1
+niższej. W przypadku
+jednostek posiadających atak
+w dwóch inicjatywach
+
+Подключенный блок
+получает + 1 к инициативе
+и возможность.
+проведение дополнительных
+атака в инициативе о 1
+ниже. В случае
+единицы, обладающие атакой
+в двух инициативах
+
+Wskrzeszenie: po
+zakończonej bitwie można
+wskrzesić jedną jednostkę
+która została zniszczona
+podczas tej bitwy. Dany żeton
+zostanie kładziemy na
+„wierzchu talii dobroru.
+
+Воскрешение: после
+завершенной битвы можно
+воскресить одну единицу
+которая была уничтожена
+во время этой битвы. Токен
+мы ставим на
+"сверху талии добру.
+
+Ę- dodatany jest tylko jeden atak Tae E
+> » w trzeciej inicjatywie. 0, BRE >
+- Znacznik Sieci dronów
+At the Przed rozpoczęciem Niemożliwe jest też Przesuń Chyl własny 05855
+bitwy niszczy podłączony cel A RECZNA żeton o jedno pole i/lub
+(ikonka wybuchu), niezależnie inicjatywie poniżej 0. dowolnie go obróć. Żeton
+od jego wytrzymałości czy Działa w jednym kierunku. moża przesunąć tylko na
+
+pancerza. Nie rani Sztabów. wolne pole.
+Po wybuchu należy usunąć
+żeton dronu z planszy.
+
+ 
+
+Każdy dron posiada własną
+sieć którą może zagrać na
+dowolną jednostkę (poza
+Sztabem). Sieć ta pozostaje na:
+miejscu nawet po śmierci
+Drona. Po bitwie sieć wraca
+do Drona i może być użyta
+ponownie w razie gracza.
+
+Podłączona jednostka Po zagraniu tego żetonu
+otrzymuje cechę inni gracze (w tym
+mobilność. Transport sojusznicy) nie mogą
+posiada także cechę zagrywać żetonów
+Mobilność działającą na natychmiastowych w
+niego samego. najbliższej turze (aż do
+naszej tury).
+
+Można położyć na nim żeton An Wybrana wroga
+natychmiastowy i jednostka zostaje
+
+Paraliżujący atak.
+4 Sparaliżowane jednostki nie
+
+mogą wykonać ataku aż do wykorzystać go w sparaliżowana na czas
+następnej bitwy. Wszyskie późniejszej turze. najbliższej bitwy (nie może
+zdolności sparaliżowanych Wytrzymałość. wykonać ataku).
+jednostek dalej działają. Wszystkie cechy działają
+> 4 normalnie
+
+Ta NE ZZ
+
+Podłączone wrogie jednostki
+mają obiżoną inicjatywę do
+poziomu 0. W przypadku
+jednostek atakującej w kilku
+inicjatywach wykonać mogą
+tylko pierwszy atak.
+
+Odbicie chroni jednostkę przed
+wszystkimi atakami z danej
+stony. Odbity atak trafia na
+pierwsze pole od strony ataku
+raniąc znajdujący się tam
+wrogi żeton. Odbity atak nie
+rani naszych jednostek.
+Mobilność
+
+Po wyłożeniu tego
+żetonu na planszę
+wrogie jednostki nie
+mogą korzystać z
+aktywowanych cech
+(mobilność,
+
+Niewrażliwość na ciosy. RCA o
+Podmiana - Na początku odepchnięcie, itp). Nie
+swojej tury gracz może RONIZY cD SANU
+usunąć Amebę i w jej miejsce O YNACECLED
+postawić właśnie dociągnięty
+
+żeton. Obrażenia Ameby nie
+
+przechodzą na nową
+
+jednostkę.
+     
+Pancerz z każdej strony,
+
+Wytrzumałość, Podmiana -
+
+na początku swojej tury gracz
+
+może usunąć Amebę i w jej
+
+miejsce postawić właśnie
+
+dociągnięty żeton. Obrażenia
+
+Ameby nie przechodzą na
+
+nową jednostkę. 2
+
+- Znacznik Zatrucia
+
+- Znacznik Paraliżu
+
+Wystrzeliwuje rakiety na
+sąsiednie pole w kierunku linii
+strzału, następni rakieta
+'_ może przebyć jeszcze dwa
+pola (niezajęte przez wrogie
+jednostki), niekoniecznie w
+linii prostej. Pierwsza
+napotkana przez rakietę
+wroga jednostka (w tym
+Sztab) zostaje trafiona i
+otrzymuje 3 rany. Na
+Wrzutnię rakiet nie działają
+bonusy, które zwiększają
+siłę strzału. Jednostkę
+_trafioną strzałem z Wyrzutni
+rakiet w normalny sposób
+chroni Pancerz.
+Obrót,Niemożliwość
+Wskrzeszenia.
+
+Strzał Gaussa z siłą 3 - rani
+wszystkie jednostki na lini
+strzału. Siła ataku nie może
+zostać zwiększona przez | moduły.
+Obrót, Niemożliwość
+Wskrzeszenia.
+
+Strzał w 3 kierunkach,
+Obrót. „ Niemożliwość
+wskrzeszenia
+
+Cios z siłą 5, Obrót,
+_Niemożliwość wskrzeszenia.
+
+jednostka ta oprócz otrzymania
+obrażeń zostaje zatruta — należy
+położyć na niej znacznik Jadu.
+
+- znacznik Jadu. Na początku
+każdej Bitwy (jeszcze przed fazami
+inicjatywy) jednostka, na której leży
+znacznik Jadu otrzymuje
+automatycznie 1 ranę. Jeśli na
+ jednostc więcej znaczników
+ Jadu, otrzymi ona odpowiednio
+więcej ran na początku każdej
+
+E-положительная только одна атака Tae E
+> "в третьей инициативе. 0, BRE >
+- Тег сети беспилотных летательных аппаратов
+At the Перед началом невозможно также переместить наклонение самостоятельно 05855
+сражение уничтожает связанную цель и ручную фишку на одно поле и/или
+(иконка взрыва), независимо от инициативы ниже 0. свободно поверните его. Жетон
+от его выносливости или работает в одном направлении. может двигаться только на
+
+брони. Он не причиняет вреда штабам. свободное поле.
+После взрыва необходимо удалить
+жетон дрона с доски.
+
+Каждый дрон имеет свой собственный
+сеть, которую он может играть на
+любая единица (кроме
+Штабом). Эта сеть остается на:
+даже после смерти
+Дрона. После битвы сеть возвращается
+для дрона и может быть использован
+снова в случае игрока.
+
+Подключенный блок после игры этого чипа
+получает особенность другие игроки (в том числе
+мобильность. Транспорт союзники) не могут
+она также имеет особенность играть фишки
+Мобильность, действующая на непосредственных в
+него самого. ближайшей очереди (вплоть до
+нашего хода).
+
+Вы можете положить на него жетон выбранного врага
+мгновенное и индивидуум остается
+
+Парализующий приступ.
+4 парализованные единицы не
+
+они могут выполнять атаки до тех пор, пока они не использовать его в парализованы на время
+следующий бой. Все более позднем туре. ближайшей битвы (не может
+способности парализованных выносливость. выполнить атаку).
+подразделения продолжают действовать. Все функции работают
+> 4 нормально
+
+Та не ЗЗ
+
+Подключенные вражеские юниты
+у них есть инициатива к
+уровень 0. В случае
+атакующих единиц в нескольких
+инициатив выполнить могут
+только первая атака.
+
+Отражение защищает человека от
+всеми атаками с данной
+Стоуни. Отраженная атака попадает на
+первое поле со стороны атаки
+ранив находившегося там
+вражеская фишка. Отраженная атака не
+это ранит наши подразделения.
+Мобильность
+
+После того, как вы выложили это
+фишка для доски
+вражеские единицы не
+они могут использовать
+активированные характеристики
+(мобильность,
+
+Нечувствительность к ударам. RCA о
+Подмену-вначале отталкивание и т. Нет
+свой ход игрок может RONIZY cD Сану
+удалить амебу и на ее месте о YNACECLED
+поставить только потянул
+
+жетон. Повреждения амебы нет
+
+переход на новую
+
+единицу.
+
+Броня с каждой стороны,
+
+Вытекание, Подменяемое -
+
+в начале своего хода игрок
+
+может удалить амебу и в ее
+
+место поставить только
+
+затянут фишку. Урон
+
+Амебы не переходят на
+
+новое подразделение. 2
+
+- Маркер Отравления
+
+- Маркер Паралича
+
+Запуск ракеты на
+соседнее поле к линии
+выстрел, следующая ракета
+'_может пройти еще два
+поля (незанятые врагами
+единицы), не обязательно в
+прямой. Первая
+встреченная ракетой
+вражеская единица (в том числе
+Штаб) попадает и
+он получает 3 раны. На
+Ракетные установки не работают
+бонусы, которые увеличивают
+сила выстрела. Блок
+Выстрелом из гранатомета
+ракеты в обычном порядке
+защищает броню.
+Вращение, Невозможность
+Воскрешения.
+
+Выстрел Гаусса с силой 3-Рани
+все подразделения на линии
+выстрела. Сила атаки не может
+быть увеличена / модули.
+Вращение, Невозможность
+Воскрешения.
+
+
+Выстрел в 3 направлениях,
+Вращение. „ Невозможность
+воскрешения
+
+Удар с силой 5, вращение,
+_Niemożliwość воскрешения.
+
+эта единица в дополнение к получению
+травматизм отравлен-следует
+положите на нее маркер яда.
+
+- маркер яда. Вначале
+каждой битвы (еще до этапов
+инициативы) индивид, на котором лежит
+маркер яда получает
+автоматически 1 рану. Если на
+единицы больше тегов
+Яда, она будет получать соответственно
+больше ран в начале каждого
