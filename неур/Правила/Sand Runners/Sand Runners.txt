@@ -1,0 +1,15 @@
+Camouflage: Any unit or module camouflaged by its own ability or by a connected module is invisible to Ranged Attacks coming from any non-adjacent hex. The Ranged Attack goes right through the camouflaged tile, and hits any eligible target behind it. A camouflaged tile can only be hit from an adjacent hex. Placing a non-attacking enemy unit or enemy module adjacent does not blow the cover of the camouflaged unit. Camouflaged tiles cannot be targeted directly by Instant Actions, however area effect Instant Actions can hit these tiles. A camouflaged unit becomes visible in any initiative phase in which it attacks, for the duration of that initiative. If the camouflaged unit has no target in its attack phase, therefore it’s idle, it remains hidden. Modules can be camouflaged. HQs cannot be camouflaged
+
+Optional rule: Better camouflage: Unit does not become visible when attacking.
+
+While camouflaged either by itself or by a “module, a unit using Ripper can destroy an adjacent enemy unit or module. May not hit enemy HQs.
+
+An improved Medic. Can prevent wounds from 2 attacks. The first attack is marked by a wound token, after the second attack Field Medic is discarded.
+
+Камуфляж: любой блок или модуль, замаскированный своей собственной способностью или подключенным модулем, невидим для дальних атак, исходящих от любого несмежного шестигранника. Дальняя атака проходит прямо через замаскированную плитку и поражает любую подходящую цель позади нее. Замаскированная плитка может быть поражена только из соседнего шестигранника. Размещение рядом не атакующего вражеского подразделения или вражеского модуля не подрывает прикрытие замаскированного подразделения. Замаскированные плитки не могут быть нацелены непосредственно на мгновенные действия, однако эффект области мгновенные действия могут поразить эти плитки. Замаскированное подразделение становится видимым в любой фазе инициативы, на которой оно атакует, на протяжении всей этой инициативы. Если замаскированное подразделение не имеет цели в своей фазе атаки, следовательно, оно бездействует, оно остается скрытым. Модули могут быть замаскированы. Штаб не может быть замаскирован
+
+Дополнительное правило: лучший камуфляж: юнит не становится видимым при атаке.
+
+Будучи замаскированным либо самим собой, либо "модулем", подразделение, использующее Потрошитель, может уничтожить соседнее вражеское подразделение или модуль(не в HQs).
+
+Усовершенствованный медик. Может предотвратить раны от 2-х атак. Первая атака помечается знаком раны, после второй атаки полевой медик отбрасывается.

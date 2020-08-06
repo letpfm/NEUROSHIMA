@@ -1,0 +1,34 @@
+Placement: Ability with this icon is usable only during tile placement on board.
+Размещение: возможность с этим значком используется только во время размещения плитки на доску.
+
+Teleport: Move an owned unit to an unoccupied hex that's exactly to spaces away and turn it in any direction desired. May move to a hex occupied by a unit with Transporter ability, which is then removed from the board. When a unit with a put-on-the-board ability is teleported, you may use it again.
+
+Hook: When put onboard this unit may move an adjacent enemy unit to any unoccupied hex adjacent to the unit using Hook. Unit owner may rotate it.
+
+Телепортация: переместите принадлежащий блок в незанятый шестигранник, который точно находится в пространстве, и поверните его в любом желаемом направлении. Может переместиться на шестигранник, занятый блоком с транспортерной способностью, который затем снимается с доски. Когда вы телепортируете устройство со способностью "положить на доску", вы можете использовать его снова.
+
+Hook (Placement): When put SR on the board, this unit may move an adjacent enemy unit to any unoccupied hex adjacent to the unit using  Hook. Unit owner may rotate it.
+
+Крюк: при установке на борт этот блок может переместить соседний вражеский блок в любой незанятый шестигранник, расположенный рядом с блоком, используя крюк. Владелец блока может вращать его.
+
+Push Back (Placement): When put on the board, the unit can push back one adjacent enemy unit freely.
+
+Push Back (размещение): когда он помещен на доску, блок может свободно отодвинуть один соседний вражеский блок.
+
+Grabbing (Placement): When put on the board, grab an enemy unit 2 hexes away and move it adjacent to this unit if target hex is unoccupied. Unit's owner may rotate unit any direction after grab and can select target hex if there are multiple choices.
+
+Transporter: On tiles deployment, player may place this unit off board and put one of his board tiles in his place. If the unit
+is damaged, it is not transferred tonew unit.
+Aggressive Castling (Placement): When put on the board, the unit may switch places with an adjacent enemy unit, without changing facing.
+
+Транспортер: при развертывании плиток игрок может убрать этот блок с доски и поставить на его место одну из своих плиток доски. Если блок
+повреждается, не переносится на новый агрегат.
+Агрессивная рокировка (размещение): при установке на доску блок может поменяться местами с соседним вражеским блоком, не вращая.
+
+Two adjacent owned units (including Headquarters) can ‘switch places, but they do not change their facing. Units caught in a net cannot castle.
+
+Два соседних принадлежащих им подразделения (включая штаб-квартиру) могут "поменяться местами", но они не вращаются. Единицы, попавшие в сеть, не могут это делать.
+
+Destroy one chosen enemy unit adjacent to your HQ. Doesn't affect enemy HQ. Not useable if HQ is disabled by Net 
+
+Уничтожьте одно выбранное вражеское подразделение, расположенное рядом с вашим штабом. Не влияет на штаб противника. Не пригоден для использования, если штаб-квартира отключена сетью

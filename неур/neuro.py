@@ -39,7 +39,8 @@ armyDict = {'dancer': {'hq': 3,
 			'New Detroit': {16: 1, 21: 2, 24: 3},
 			'HI-TECH': {7: 1, 11: 2, 13: 3, 14: 4, 16: 5, 17: 2, 18: 11},
 			'Sand Runners': {11: 1, 14: 2, 15: 3, 18: 5},
-			'Salt Lake City': {6: 1, 15: 2, 17: 3, 18: 5, 19: 4}
+			'Silicon Valley': {6: 1, 15: 2, 17: 3, 18: 5, 19: 4},
+			'Bayou Boyz': {1: 1, 6: 2, 9: 3, 10: 4, 11: 5, 12: 6, 13: 2, 27: 1}
 			}
 lenArmyDict = len(armyDict)
 
@@ -74,7 +75,9 @@ colorArmy = {'sandrunners': (237,76,35),
 			'The MIT':(222, 108, 52),
 			'Frontier Nexus':(220, 48, 165),
 			'New Detroit': (145, 160, 180),
-			'HI-TECH': (59, 138, 220)
+			'HI-TECH': (59, 138, 220),
+			'Silicon Valley': (114, 56, 168),
+			'Sand Runners': (117, 154, 68)
 			}
 
 size = sizeDict[0]
