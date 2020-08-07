@@ -273,13 +273,10 @@ class piece:
 		self.image = pg.Surface((100, 100))
 		self.image = img
 		self.rect = self.image.get_rect()
-	def zoom(self): pass
 	def update(self, surface):
 		if self.click:
 			self.rect.center = [pg.mouse.get_pos()[i] + self.posmouse[i] for i in (0, 1)]
 		surface.blit(self.image, self.rect)
-	def imagebg(self):pass
-	def rotate(self, r=60, x = int(hexw), y = int(hexh)): pass
 	def remember(self, l):
 		i = self
 		i.rect.center = [int(l[0][n] * hexh + center[n]) for n in (0, 1)]
@@ -428,10 +425,11 @@ def game_event_loop(a, nameFile = nameFile):
 						if event.button == 1:
 							i.posmouse = [iPos[n] - mPos[n] for n in (0,1)]
 							i.click = True
-						elif event.button == 2: i.zoom()
-						elif event.button == 3: i.imagebg()
-						elif event.button == 4: i.rotate(-60)
-						else: i.rotate()
+						if i.type != 'маркер':
+							if event.button == 2: i.zoom()
+							elif event.button == 3: i.imagebg()
+							elif event.button == 4: i.rotate(-60)
+							else: i.rotate()
 						break
 		elif event.type == pg.MOUSEBUTTONUP:
 			for i in a:

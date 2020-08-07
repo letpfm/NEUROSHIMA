@@ -9,7 +9,7 @@ Hook: When put onboard this unit may move an adjacent enemy unit to any unoccupi
 
 Hook (Placement): When put SR on the board, this unit may move an adjacent enemy unit to any unoccupied hex adjacent to the unit using  Hook. Unit owner may rotate it.
 
-Крюк: при установке на борт этот блок может переместить соседний вражеский блок в любой незанятый шестигранник, расположенный рядом с блоком, используя крюк. Владелец блока может вращать его.
+Крюк: при установке на борт этот блок может переместить соседний вражеский блок в любой незанятый шестигранник, расположенный рядом с собой. Владелец того блока может вращать его.
 
 Push Back (Placement): When put on the board, the unit can push back one adjacent enemy unit freely.
 
