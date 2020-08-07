@@ -142,8 +142,6 @@ BackGround = Background(0) #нашёл фон
 
 
 size = sizeDict[4]
-running = True
-
 running = True #что бы цикл бегал
 r = 2 #стартовое кол-во игроков
 l = ['случайная армия']*6 #названия которые надо отобразить
@@ -176,21 +174,23 @@ while running:
 		while not nameFile:
 			fi = files[i][:-4].split(', ')
 			fi += ['' for fi0 in range(sumInH - len(fi) - 3)]
-			t = fi + ['◄◄◄Да, эта партия '\
-				,'следующая►►►' + str(i+1) + '/' + str(len(files)),'X×УДАЛИТЬ×X']
+			t = fi + [f'следующая {str(i+1)}/{str(len(files))}']*int(len(files)>1)+\
+			['>Да, эта партия< ','-вернуться-','[УДАЛИТЬ]']
 			chA = -1
 			while chA < 0:
-				chA = choiceArmy(t) - len(fi)
+				chA = choiceArmy(t) - len(fi) + int(len(files)==1)
 			if chA == 0:
+				i += 1
+				if i >= len(files):
+					i = 0
+			elif chA == 1:
 				nameFile = files[i]
 				with open(nameFile, 'rb') as f:
 					armyDict = pickle.load(f)
 				running = 0
-			elif chA == 1:
-				i += 1
-				if i >= len(files):
-					i = 0
 			elif chA == 2:
+				nameFile = 1
+			elif chA == 3:
 				if choiceArmy(['' for fi0 in range(sumInH//2-2)]+['НЕТ!!!','_'*sumInH*3, 'Да, X×УДАЛИТЬ×X']) < sumInH//2:
 					pass
 				else:
@@ -420,7 +420,6 @@ def game_event_loop(a, nameFile = nameFile):
 						i.notake = 0
 					if EventHp:
 						i.hp += (ek == ku) - (ek == kd)
-						break
 					else:
 						if event.button == 1:
 							i.posmouse = [iPos[n] - mPos[n] for n in (0,1)]
@@ -429,8 +428,8 @@ def game_event_loop(a, nameFile = nameFile):
 							if event.button == 2: i.zoom()
 							elif event.button == 3: i.imagebg()
 							elif event.button == 4: i.rotate(-60)
-							else: i.rotate()
-						break
+							elif event.button == 5: i.rotate()
+					break
 		elif event.type == pg.MOUSEBUTTONUP:
 			for i in a:
 				i.click = False
