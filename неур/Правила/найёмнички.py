@@ -163,3 +163,6 @@
 	# When drawing tokens, a player can always draw his Mercenary instead of his own army unit.
 	# For ALL game purposes, the chosen Mercenary tile is treated as a regular unit owned by whoever played that tile.
 	# As a visual reminder, players can mark their Mercenaries with HQ tokens.
+
+
+больше дополнений буду искать тут: https://www.boardgamegeek.com/wiki/page/Unofficial_Neuroshima_Hex!_expansions
