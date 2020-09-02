@@ -110,23 +110,28 @@ class Background(pg.sprite.Sprite):
 		self.rect = self.image.get_rect()
 		self.rect.center = center
 
-def choiceArmy(l):
+def choiceArmy(l, start = 0):
 	i0 = 0
+	tempColor = {}
 	while 1:
 		Screen.blit(BackGround.image, BackGround.rect)
 		ll = len(l)	
 		if ll > sumInH:
 			yScroll = int(i0/(ll - sumInH)*(center[1]*2-hexh))
 			draw_text(Screen, '[', center[0]*2, yScroll, hexh, 0, \
-	(random.randrange(255), random.randrange(255), random.randrange(255)))
-		for i in range(i0, min(ll, i0 + sumInH)): 
-			#если есть цвет, то крашу
-			clrarmy = colorArmy[l[i]] if l[i] in colorArmy else (255,255,255)
+			random.choice([colorArmy[i] for i in colorArmy]))
+		for i in range(i0, min(ll, i0 + sumInH)):
+			if not l[i] in colorArmy and not l[i] in tempColor:
+				tempColor[l[i]] = [random.randrange(256) for i in range(3)]
+			clrarmy = colorArmy[l[i]] if l[i] in colorArmy else tempColor[l[i]]
 			draw_text(Screen, l[i], center[0], (i - i0)*hexh, hexh, 0, clrarmy)
 
 		pg.display.update()
 
 		for event in pg.event.get():
+			for i in range(i0, min(ll, i0 + sumInH)):
+				if l[i] in tempColor:
+					tempColor[l[i]] = [random.randrange(256) for i in range(3)]
 			if event.type == pg.QUIT:
 				pg.quit()
 				sys.exit()
@@ -136,7 +141,10 @@ def choiceArmy(l):
 					if i0: i0 -= 1
 				elif event.button == 5:
 					if i0 < ll - sumInH: i0 += 1
-				else: return i0 + pg.mouse.get_pos()[1]//hexh
+				else:
+					o = i0 + pg.mouse.get_pos()[1]//hexh
+					if o >= start:
+						return o
 
 pg.display.set_caption("Егор молодец")
 BackGround = Background(0) #нашёл фон
@@ -179,7 +187,7 @@ while running:
 			['>Да, эта партия< ','-вернуться-','[УДАЛИТЬ]']
 			chA = -1
 			while chA < 0:
-				chA = choiceArmy(t) - len(fi) + int(len(files)==1)
+				chA = choiceArmy(t, len(fi)) - len(fi) + int(len(files)==1)
 			if chA == 0:
 				i += 1
 				if i >= len(files):
