@@ -41,7 +41,7 @@ armyDict = {'dancer': {'color': (241,134,0), 'hq': 3, 4: 10, 5: 8, 7: 7},
 			'Sand Runners': {'color': (117, 154, 68), 11: 1, 14: 2, 15: 3, 18: 5},
 			'Silicon Valley': {'color': (114, 56, 168), 6: 1, 15: 2, 17: 3, 18: 5, 19: 4},
 			'Bayou Boyz': {1: 1, 6: 2, 9: 3, 10: 4, 11: 5, 12: 6, 13: 2, 27: 1},
-			'firemen': {5: 1, 13: 2, 14: 4, 16: 5}
+			'firemen': {'color': (161, 245, 255), 5: 1, 13: 2, 14: 4, 16: 5}
 			}
 
 colorArmy = {}
@@ -67,7 +67,7 @@ Screen = pg.display.set_mode(size)
 center = Screen.get_rect().center
 def draw_text(surf, text, x, y, sizet, bg = 1, rgb = (255,255,255)):
 	if bg:
-		draw_text(surf, '■', x, y - sizet * 0.9, int(sizet * 2.2), 0, (0,0,0))
+		draw_text(surf, text, x-sizet//20, y-sizet//20, sizet, 0, [255 - i for i in rgb])
 	if '\n' in text:
 		indexN = text.index('\n')
 		draw_text(surf, text[indexN+1:], x, y+sizet, sizet, bg, rgb)
@@ -96,13 +96,13 @@ def choiceArmy(l, start = 0):
 		ll = len(l)	
 		if ll > sumInH:
 			yScroll = int(i0/(ll - sumInH)*(center[1]*2-hexh))
-			draw_text(Screen, '[', center[0]*2, yScroll, hexh, 0, \
+			draw_text(Screen, '[', center[0]*2, yScroll, hexh, 1, \
 			random.choice([colorArmy[i] for i in colorArmy]))
 		for i in range(i0, min(ll, i0 + sumInH)):
 			if not l[i] in colorArmy and not l[i] in tempColor:
 				tempColor[l[i]] = [random.randrange(256) for i in range(3)]
 			clrarmy = colorArmy[l[i]] if l[i] in colorArmy else tempColor[l[i]]
-			draw_text(Screen, l[i], center[0], (i - i0)*hexh, hexh, 0, clrarmy)
+			draw_text(Screen, l[i], center[0], (i - i0)*hexh, hexh, 1, clrarmy)
 
 		pg.display.update()
 
@@ -324,7 +324,7 @@ class hex(piece):
 
 		surface.blit(self.image, self.rect)
 		if self.hp - 1 and not self.z and self.side:
-			sizet = hexh//4
+			sizet = hexh//2
 			x = self.rect.center[0]
 			y = self.rect.center[1]-sizet//1.5
 			t = str(self.hp) if self.hp else '#'
