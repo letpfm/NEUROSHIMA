@@ -2,6 +2,10 @@ Fire units are mid-range unit. Contrary to bullet, it takes time for the fire to
 
 Пожарные подразделения - это подразделения среднего радиуса действия. В отличие от пули, для распространения огня требуется время, примите это во внимание. Армия мобильна, обладает хорошей инициативой и имеет сильные вспомогательные подразделения. Перемещение, возможность атаковать, поддержка огневых подразделений, чтобы дать им время сжечь все это является ключом к большому урону.
 
+Fire attack deals 1 damage to any hex in range. Fire attack is stopped by an armor, and cannot propagate beyond. Fire attack is considered ranged attack, but cannot be damage-bonus by modules.
+
+Огненная атака наносит 1 урон любому шестиграннику в радиусе действия. Огневая атака остановливается броней и не может распространяться дальше. Огневая атака считается дальней атакой, но не может иметь бонусы к урону от модулей.
+
 Discussion
 http://boardgamegeek.com/thread/910146/fan-army-firemen-beta-testing-incl-images
 File

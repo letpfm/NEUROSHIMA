@@ -33,3 +33,6 @@ Spellcaster, increase the number of maximum tokens per tile to 2
 This unit gains Spy ability. A Spy can link itself to enemy Modules or HQs as if they were friendly Modules or HQs, automatically receiving their bonuses and benefits (Note that the module can still aid allies that connected to it). If a Medic is linked to several units (including a Spy) which all take damage simultaneously, then as usual the module's owner decides which linked unit will be cured.
 
 Это подразделение получает шпионские способности. Шпион может связать себя с вражескими модулями или штабами, как если бы они были дружественными модулями или штабами, автоматически получая их бонусы и преимущества (обратите внимание, что модуль все еще может помогать союзникам, которые подключились к нему). Если медик связан с несколькими единицами (включая шпиона), которые все получают повреждения одновременно, то, как обычно, владелец модуля решает, какая связанная единица будет вылечена.
+
+when this unit receive one wound, this marker is removed instead
+когда этот блок получает одно ранение, этот маркер удаляется вместо него
