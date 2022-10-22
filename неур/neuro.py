@@ -1,5 +1,7 @@
-#надо будет сделать нормальный подсчет кол-ва оставшихся фишек, что бы был пересчет фишек по месту, а не по армии. Места для колод поместить в ячейки седки что бы можно было возвращать карту (если взял случайно) и перезапускать игру что бы все опять перемешивалось - хотя бы так.
-
+#надо будет сделать нормальный подсчет кол-ва оставшихся фишек, что бы был пересчет фишек по месту, а не по армии.
+#Места для колод поместить в ячейки седки(НО СЕТКА УЖЕ НЕ НУЖНА ВНЕ ПОЛЯ?) что бы можно было возвращать карту (если взял случайно) и перезапускать игру что бы все опять перемешивалось - хотя бы так.
+#А ещё было бы круто вместо подсчёта кол-ва карт в колоде что сейчас есть сделать посчёт всех карт лежащих рубашкой вверх, чтоб всегда можно было вернуть карту на верх колоды и перезапустить чтоб перемашать в случае случайного перебора карт
+#можно сделать автосохранения, что бы при ошибке человек всегда мог отматать и получить что-то случайно ещё раз.
 import pickle, os, sys, random, datetime
 import pygame as pg
 
@@ -110,8 +112,13 @@ def choiceArmy(l, start = 0):
 
 		for event in pg.event.get():
 			for i in range(i0, min(ll, i0 + sumInH)):
-				if l[i] in tempColor:
-					tempColor[l[i]] = [random.randrange(256) for i in range(3)]
+				if l[i] in tempColor:#менять цвет в меню при движении мыши
+					for n in range(3):
+						deltattc = 10
+						ttc = tempColor[l[i]][n] + random.choice([-deltattc, deltattc])
+						if 0 < ttc < 255:
+							tempColor[l[i]][n] = ttc
+
 			if event.type == pg.QUIT:
 				pg.quit()
 				sys.exit()
@@ -126,7 +133,7 @@ def choiceArmy(l, start = 0):
 					if o >= start:
 						return o
 
-pg.display.set_caption("Егор молодец")
+pg.display.set_caption("Егор молодец!")
 BackGround = Background(0) #нашёл фон
 
 
@@ -381,13 +388,17 @@ def main(Surface, AllUnits):
 			else: y = -hexh//8
 			draw_text(Surface, str(countNoTake[i]), abs(size[0]*(i%2) - sz), y, hexh//2)
 
+
+Screen_get_flags_in_windowed_mode = Screen.get_flags()
 def game_event_loop(a, nameFile = nameFile):
 	for event in pg.event.get():
 		if event.type == pg.KEYDOWN:
 			ek = event.key
-			if ek == pg.K_f:
-				if Screen.get_flags() == 0: pg.display.set_mode(size, flags=pg.FULLSCREEN)
-				else: pg.display.set_mode(size)
+			if ek == pg.K_f:#при нажатии на f игра развернется на полный экран
+				if Screen.get_flags() == Screen_get_flags_in_windowed_mode:
+					pg.display.set_mode(size, flags=pg.FULLSCREEN)
+				else:
+					pg.display.set_mode(size)
 			ku, kd =  pg.K_UP, pg.K_DOWN
 			EventHp = ek in (ku, kd)
 		else: EventHp = 0 
