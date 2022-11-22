@@ -59,7 +59,7 @@ files = [nameFile for nameFile in os.listdir(game_folder) if nameFile[-4:] == '.
 img_folder = os.path.join(game_folder, 'img')
 def pgil(a, b): return pg.image.load(os.path.join(a, b)).convert_alpha()
 os.environ['SDL_VIDEO_CENTERED'] = '1'#что бы по центру было
-sizeDict = [(640,360), (854, 480), (960, 540), (1000, 600), (1280,720), (1366, 768)]
+sizeDict = [(640,360), (854, 480), (960, 540), (1000, 600), (1280,720), (1366, 768), (2560, 1600)]
 MyClock = pg.time.Clock()
 Backgrounds = {0: '0.jpg',5: "bg5.png", 6: 'bg6.png', 7: "bg7.png"}
 
